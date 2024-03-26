@@ -22,7 +22,7 @@ const About = () => {
         프로젝트를 통해 다양한 사람들과 협력하며, 함께 일하고 공유함으로써 더 나은 결과물을 만들어내려고 노력하고 있습니다. 
         성공적인 프로젝트를 완성하여 사람들에게 이로운 서비스를 개발하는 것이 제 목표입니다.
         </p>
-        <a href='https://drive.google.com/file/d/17rTu8y9bC8AW5cKiqU_qTV0JophyMozQ/view?usp=drive_link' target="_blank" className='btn' download={"Simpangyo_Resume"}>이력서보기 &gt;</a>
+        <a href='https://drive.google.com/file/d/1O4nbpBPvq1sdifAmc0vG9A9xqWa8BTZb/view?usp=drive_link' target="_blank" className='btn' download={"Simpangyo_Resume"}>이력서보기 &gt;</a>
       </div>
 
       <div className='about__skills grid'>
