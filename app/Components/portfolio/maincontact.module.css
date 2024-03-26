@@ -1,0 +1,58 @@
+
+.paywrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 35vh;
+}
+.paywrap button{
+    width: 20vh;
+    height: 5vh;
+    font-size: 20px;
+    margin-top: 2vh;
+    border-radius: 10px;
+    transition: 0.1s linear;
+    cursor: pointer;
+}
+
+.paywrap button:hover{
+    opacity: 0.8;
+    transform: scale(1.02);
+}
+.kakao {
+    border: 0.5px solid gray;
+    background: gold;
+}
+.kakao img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.toss {
+    border: 0.5px solid gray;
+    background: white;
+}
+.toss img {
+    width: 15vh;
+    height: 3vh;
+}
+.payco {
+    margin-left: -1vh;
+    border: none;
+    background: white;
+}
+.payco img {
+    border: 0.5px solid gray;
+    border-radius: 10px;
+    width: 105.5%;
+    height: 100%;
+    object-fit:cover;
+}
+
+.mapcontainer {
+    margin-left: 106vh;
+    width: 50vh;
+    height: 40vh;
+    margin-top: 16.5vh;
+}

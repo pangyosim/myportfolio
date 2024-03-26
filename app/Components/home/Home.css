@@ -1,0 +1,179 @@
+.home {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.intro {
+    max-width: 540px;
+    text-align: center;
+}
+
+.home__img {
+    margin-bottom: 1.5rem;
+    border-radius: 50%;
+}
+
+.home__name {
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-bold);
+    margin-bottom: 0.5rem;
+}
+.home__socials {
+    display: flex;
+    justify-content: center;
+    column-gap: 1.75rem;
+    margin: 1.5rem 0;
+}
+
+.home__social-link {
+    color: var(--title-color);
+    font-size: 1.3rem;
+    transition: .3s;
+}
+
+.home__social-link:hover {
+    color: hsl(43, 100%, 68%);
+}
+
+.scroll__down{
+    position: absolute;
+    bottom: 2.5rem;
+    left: 0;
+    width: 100%;
+
+}
+
+.home__scroll-name {
+    font-size: var(--small-font-size);
+    color: #4b5c88;
+}
+
+.mouse{
+    border: 2px solid #454360;
+    display: block;
+    height: 1.6rem;
+    width: 1.25rem;
+    margin: auto;
+    margin-top: .75rem;
+    border-radius: 1rem;
+    position: relative;
+}
+
+
+@keyframes ani-mouse {
+    0% {
+        top:29%;
+    }
+
+    15% {
+        top: 50%;
+    }
+    
+    50%{
+        top: 50%;
+    }
+
+    100%{
+        top: 29%;
+    }
+}
+.wheel {
+    background-color: var(--title-color);
+    border-radius: 100%;
+    width: 0.25rem;
+    height: 0.25rem;
+    position: absolute;
+    top: .5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: ani-mouse 2s linear infinite;
+
+}
+
+.shapes {
+    z-index: -1;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0%;
+    height: 100%;
+    width: 150%;
+    background-image: url('/img/backgroundimg.jpeg');
+    background-size: cover; /* 너비를 100%로 설정하여 화면 너비에 맞게 확장됩니다. */
+    background-position: center; /* 배경 이미지가 가운데로 정렬됩니다. */
+    background-repeat: no-repeat; /* 배경 이미지가 반복되지 않습니다. */
+    opacity: 0.2;
+}
+
+.shape{
+   position: absolute; 
+}
+
+.s1 {
+  left: 2%;
+  top: 10%;  
+}
+
+.s2 {
+    left: 18%;
+    top: 30%;  
+  }
+
+  .s3 {
+    left: 5%;
+    bottom: 30%;
+  }
+
+  .s4 {
+    left: 2%;
+    bottom: 10%;
+  }
+
+  .s5 {
+    left: 44%;
+    top: 10%;
+  }
+
+  .s6 {
+    left: 36%;
+    bottom: 10%;
+  }
+
+  .s7 {
+   top: 20%;
+   right: 25%;
+  }
+
+  .s8{
+    right: 24%;
+    bottom: 20%;
+
+  }
+
+  .s9{
+    right: 2%;
+    top: 10%;
+  }
+
+  .s10{
+    top: 45%;
+    right: 11%;
+  }
+
+  .s11{
+    bottom: 10%;
+    right: 2%;
+  }
+
+  @media screen and (max-width:1024px) {
+    .home__social-link {
+      font-size: 1.125rem ;
+  }
+    .shapes{
+      width: 100%;
+    }
+}
