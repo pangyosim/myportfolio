@@ -5,10 +5,7 @@ const Menu =[
     image: "/img/oyesmainimg.png",
     title:"OTT 서비스 아이디 공유 프로젝트",
     category: "Project",
-    content: "HTML5,CSS,Javascript으로 전반적인 웹을 구성하였으며,"+
-            " Spring, Mybatis으로 로그인, 파티 등 CRUD를 구현하였습니다."+
-            " 인기 TOP10구현에 JSOUP 데이터 크롤링을 활용하였습니다. "+
-            " 파티 가입 시 PortOne 결제 API으로 테스트 결제를 구현하였습니다.",
+    content: "HTML5, CSS, JavaScript로 전체적인 웹 페이지를 디자인하고, Spring 및 MyBatis를 이용하여 로그인, 파티 등의 CRUD 기능을 개발했습니다. 인기 TOP10 목록은 JSOUP을 활용하여 데이터 크롤링을 수행하여 구현하였고, 파티 가입 시에는 PortOne 결제 API를 통해 테스트 결제를 처리했습니다.",
     url: "https://github.com/pangyosim/strawberr7",
     iname: "fa-brands fa-github",
     buttontitle: "Github",
@@ -47,7 +44,7 @@ const Menu =[
   {
     id:5,
     image: "/img/githubpage.png",
-    title:"프로젝트들이 올라가 있는 Github",
+    title:"프로젝트들이 업로드되어있는 Github",
     category: "Blog",
     content:"프로젝트, 개발공부들을 하며 결과물들을 깃허브에 저장하고 있습니다. 프로젝트를 진행할 때는 해당 프로젝트의 설계나 고민했던 것을 적어가고 있습니다.",
     url:"https://github.com/pangyosim",
