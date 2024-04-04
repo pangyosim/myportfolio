@@ -150,9 +150,6 @@
         border-radius: 20px; /* 둥근 모서리를 위한 반지름 값 설정 */
     }
     
-    .about__boxes{
-        display:ruby-text;
-    }
     .about__box {
         flex-direction: column;
         row-gap: 0rem;
