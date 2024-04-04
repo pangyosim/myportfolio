@@ -168,6 +168,9 @@
     .work__container {
         grid-template-columns: 310px;
     }
+    .work__card{
+        height: 39vh;
+    }
 
     .work__filters {
         row-gap: .25rem;
