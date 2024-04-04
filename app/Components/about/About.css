@@ -174,7 +174,6 @@
     .about__boxes {
         grid-template-rows: repeat(2,150px);
         row-gap: 1.5rem;
-        display:ruby-text;
     }
     .about__box {
         margin-bottom: 3vh;
