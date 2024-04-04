@@ -1,14 +1,28 @@
 
-import React from 'react';
+import React,{useEffect} from 'react';
 import "./About.css"
 import AboutBox from './AboutBox';
 import Image from 'next/image';
 
 const About = () => {
+  useEffect(()=>{
+    const eventHandler = () => {
+      var windowHeight = window.innerHeight
+      const container = document.querySelector('#about')
+      if( container.getBoundingClientRect().top < windowHeight-200){
+        setTimeout(()=>{
+          container.style.animation = 'appear_from_bottom ease 1.5s'
+          container.style.opacity = 1
+      },200) 
+        window.removeEventListener('scroll',eventHandler)
+      }
+    }
+    window.addEventListener('scroll',eventHandler)
+  },[])
   return (
     <section className='about container section' id='about'>
       <h2 className='section__title'>
-        About Me
+        💁🏻‍♂️ 저를 소개합니다.
       </h2>
 
     <div className='about__container grid'>

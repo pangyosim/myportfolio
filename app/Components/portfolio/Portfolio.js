@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import "./Portfolio.css";
 import Menu from './Menu';
 import Image from 'next/image';
@@ -16,13 +16,27 @@ const Portfolio = () => {
 
     setItems(updatedItems);
   }
+  useEffect(()=>{
+    const eventHandler = () => {
+      var windowHeight = window.innerHeight
+      const container = document.querySelector('#work')
+      if( container.getBoundingClientRect().top < windowHeight-200){
+        setTimeout(()=>{
+          container.style.animation = 'appear_from_bottom ease 1.5s'
+          container.style.opacity = 1
+      },200) 
+        window.removeEventListener('scroll',eventHandler)
+      }
+    }
+    window.addEventListener('scroll',eventHandler)
+  },[])
   return (
     <section className='work container section' id='work'>
-      <h2 className='section__title'>Recent Works</h2>
+      <h2 className='section__title'>🏆 프로젝트/블로그</h2>
       <div className='work__filters'>
-        <span className='work__item' onClick={() => setItems(Menu)}>Everthing</span>
-        <span className='work__item' onClick={() => filterItem ("Project")}>Projects</span>
-        <span className='work__item' onClick={() => filterItem ("Blog")}>Blog</span>
+        <span className='work__item' onClick={() => setItems(Menu)}>모두</span>
+        <span className='work__item' onClick={() => filterItem ("프로젝트")}>프로젝트</span>
+        <span className='work__item' onClick={() => filterItem ("블로그")}>블로그</span>
         {/* <span className='work__item' onClick={() => filterItem ("Sample")}>Sample</span> */}
       </div>
       <br></br>

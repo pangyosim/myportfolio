@@ -152,7 +152,7 @@
         display: inline-block;
         background-color: #4b5c88;
         font-weight: var(--font-bold);
-
+        transition: all ease-in-out 0.2s;
     }
 
     @keyframes button-push {
@@ -166,9 +166,8 @@
         }
     }
     .btn:hover{
-        animation: button-push 0.3s linear 1;
-
-
+        background: #5c73ab;
+        transform: scale(1.05);
     }
 
     .main {

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef,useEffect } from 'react';
 import "./Contact.css";
 import emailjs from "@emailjs/browser";
 
@@ -19,9 +19,24 @@ const Contact = () => {
       },
     );
   };
+  useEffect(()=>{
+    const eventHandler = () => {
+      var windowHeight = window.innerHeight
+      const container = document.querySelector('#contact')
+      if( container.getBoundingClientRect().top < windowHeight-200){
+        setTimeout(()=>{
+          container.style.animation = 'appear_from_bottom ease 1.5s'
+          container.style.opacity = 1
+      },200) 
+        window.removeEventListener('scroll',eventHandler)
+      }
+    }
+    window.addEventListener('scroll',eventHandler)
+  },[])
+  
   return (
     <section className='contact container section' id='contact'>
-      <h2 className='section__title'>Contact Me</h2>
+      <h2 className='section__title'>📩 Contact Me</h2>
       <div className='contact__container grid'>
         <div className='contact__info'>
           <h3 className='contact__title'> <i className="fa-solid fa-envelope"></i> &nbsp;&nbsp;spg9687@gmail.com</h3><br></br><br></br>

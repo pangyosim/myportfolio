@@ -1,3 +1,6 @@
+#about{
+    opacity: 0;
+}
 .about__container {
     grid-template-columns: 3fr 9fr;
     column-gap: 1.875rem;
@@ -97,6 +100,10 @@
 .about__box {
     display: flex;
     column-gap: 1.5rem;
+    border: 0.5px solid black;
+    border-radius: 30px;
+    padding: 8px 18px 8px 18px;
+    cursor: pointer;
 }
 
 .about__icon {
@@ -105,9 +112,20 @@
 }
 
 .about__title{
-    font-size: 1.875rem;
+    font-size: 1.5rem;
+    color: #4b5c88;
 }
 
+@keyframes appear_from_bottom{
+    0%{
+      transform: translateY(150px);
+      opacity: 0;
+    }
+  
+    100%{
+      opacity: 1;
+    }
+  }
 @media screen and (max-width:1024px) {
     .about__container{
          grid-template-columns: 720px;
@@ -128,12 +146,12 @@
         justify-self: center;
         height: 33vh;
         width: 25vh;
-        border-radius: 10px; /* 둥근 모서리를 위한 반지름 값 설정 */
+        border-radius: 20px; /* 둥근 모서리를 위한 반지름 값 설정 */
     }
 
     .about__box {
         flex-direction: column;
-        row-gap: .5rem;
+        row-gap: 0rem;
         text-align: center;
     }
 }  
@@ -153,10 +171,9 @@
     }
 
     .about__boxes {
-        grid-template-columns: repeat(2,150px);
+        grid-template-rows: repeat(2,150px);
         row-gap: 1.5rem;
-        justify-content: center;
-        display: block;
+        display:ruby-text;
     }
     .about__box {
         margin-bottom: 3vh;

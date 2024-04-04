@@ -1,3 +1,6 @@
+#work{
+    opacity: 0;
+}
 .work__filters {
     display: flex;
     align-items: center;
@@ -22,12 +25,13 @@
 }
 
 .work__card{
+    white-space: pre-wrap;
     position: relative;
     cursor: pointer;
     overflow: hidden;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
-    height: 35vh;
+    height: 37vh;
 }
 
 .work__mask {
@@ -64,7 +68,8 @@
 }
 .work__category {
     color: #fff;
-    background-color: #1a278e;
+    font-weight: bold;
+    background-color: #2a3ea7;
     border-bottom-left-radius: 0.98rem;
     border-bottom-right-radius: 0.98rem;
     position: absolute;
@@ -91,11 +96,12 @@
 
 .work__content{
     color: #fff;
-    font-size: var(--a-font-size);
+    font-size: 13.3px;
+    font-weight: bold;
     margin: 0 0 0.98rem;
     padding: 0 1.25rem;
     position: absolute;
-    top: 5.5rem;
+    top: 5.2rem;
     transform: translateY(30px);
     transition: .3s;
     opacity: 0;
@@ -107,7 +113,7 @@
     color:#fff;
     position: absolute;
     bottom: 1.5rem;
-    left: 1rem;
+    right: 1rem;
     display: block;
     background-color: black;
     height: 2rem;
@@ -133,6 +139,18 @@
     opacity: 1;
     transform: translateY(0);
 }
+
+@keyframes appear_from_bottom{
+    0%{
+      transform: translateY(150px);
+      opacity: 0;
+    }
+  
+    100%{
+      opacity: 1;
+    }
+  }
+
 
 @media screen and (max-width: 1024px) {
 
