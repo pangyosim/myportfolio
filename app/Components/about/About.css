@@ -91,7 +91,7 @@
 
 .about__boxes {
     grid-template-columns: repeat(4,1fr);
-    display: flex;
+    display: ruby-text;
     justify-content: center;
     column-gap: 1.875rem;
     margin-top: 4.35rem;
@@ -103,6 +103,7 @@
     border: 0.5px solid black;
     border-radius: 30px;
     padding: 8px 18px 8px 18px;
+    margin-left: 0.5rem;
     cursor: pointer;
 }
 
@@ -187,9 +188,6 @@
 
     .about__container {
         grid-template-columns: 320px;
-    }
-    .about__boxes{
-        display:ruby-text;
     }
 }
 
