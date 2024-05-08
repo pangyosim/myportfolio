@@ -14,7 +14,7 @@ const HeaderSocials = () => {
         </a>
 
         <a href='https://pgportfolio.notion.site/SIMPANGYO-DB-096dfd3881ea47bb8c48a4b4913f42af?pvs=4' className='home__social-link' target='_blank'>
-        <i className="fa-brands fa-neos"></i>
+        <i className="fa-regular fa-paper-plane"></i>
         </a>
   </div>
   )
