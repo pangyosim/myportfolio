@@ -10,8 +10,8 @@ const Sidebar = () => {
   return (
    <>
     <aside className={toggle ? "aside show-menu" : "aside"}>
-    <a href='#home' className='nav__logo'>
-    <Image src='/img/airpodspro.png' width={100} height={100} alt='sideLogo' />
+    <a href='#home' className='nav__logo' >
+    <Image src='/img/myimg.png' width={100} height={100} alt='sideLogo' />
     </a>
 
     <nav className='nav'>

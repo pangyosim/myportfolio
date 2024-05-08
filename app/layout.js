@@ -7,11 +7,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
     <head>
-    <title>심판교 개발자 포트폴리오</title>
+    <title>심판교 포트폴리오</title>
     
     {/* <--SIMPLE LINE ICONS CDN--> */}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"></link>
-    <link rel="icon" href="img/airpodspro.png"></link>
+    <link rel="icon" href="img/myimg.png"></link>
     </head>
       <body>
       {children}

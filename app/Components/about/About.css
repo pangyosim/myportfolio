@@ -38,7 +38,6 @@
 
 .about__skills{
     row-gap: 1.25rem;
-
 }
 
 .skills__title{
@@ -72,37 +71,37 @@
 }
 
 .development {
-    width: 80%;
+    width: 60%;
     background-color: #ff801d;
 }
 
 .ui__design {
-    width: 70%;
+    width: 60%;
     background-color: seagreen;
 }
 .data {
-    width: 60%;
+    width: 50%;
     background-color: #164e90;
 }
 .DSA {
-    width: 70%;
+    width: 60%;
     background-color: orange;
 }
 .about__boxes {
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(1,1fr);
     display: flex;
-    column-gap: 1rem;
+    column-gap: 0.2rem;
     margin-top: 4.35rem;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .about__box {
     column-gap: 1.5rem;
-    border: 0.5px solid black;
+    border: 1.7px solid lightgray;
     border-radius: 30px;
     padding: 8px 18px 8px 18px;
     margin-left: 0.5rem;
-    cursor: pointer;
 }
 
 .about__icon {
@@ -171,17 +170,17 @@
 
     .about__boxes {
         grid-template-rows: repeat(2,150px);
-        row-gap: 1.5rem;
+        row-gap: 0rem;
     }
     .about__box {
-        margin-bottom: 3vh;
+        margin-bottom: 1.5vh;
     }
 }
 
 @media screen and (max-width: 576px) {
 
     .about__container {
-        grid-template-columns: 320px;
+        grid-template-columns: 300px;
     }
 }
 

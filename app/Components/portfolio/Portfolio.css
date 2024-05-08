@@ -69,7 +69,6 @@
 .work__category {
     color: #fff;
     font-weight: bold;
-    background-color: #2a3ea7;
     border-bottom-left-radius: 0.98rem;
     border-bottom-right-radius: 0.98rem;
     position: absolute;
@@ -112,12 +111,12 @@
 .work__button {
     color:#fff;
     position: absolute;
-    bottom: 1.5rem;
+    padding: 0 5px 0 5px;
+    bottom: 1.2rem;
     right: 1rem;
     display: block;
     background-color: black;
     height: 2rem;
-    width: 5rem;
     cursor: pointer;
     border-radius: 1vh;
     text-align: center;

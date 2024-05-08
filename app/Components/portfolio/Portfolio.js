@@ -32,11 +32,11 @@ const Portfolio = () => {
   },[])
   return (
     <section className='work container section' id='work'>
-      <h2 className='section__title'>🏆 프로젝트/블로그</h2>
+      <h2 className='section__title'>🛠️ PROJECT / BLOG</h2>
       <div className='work__filters'>
-        <span className='work__item' onClick={() => setItems(Menu)}>모두</span>
-        <span className='work__item' onClick={() => filterItem ("프로젝트")}>프로젝트</span>
-        <span className='work__item' onClick={() => filterItem ("블로그")}>블로그</span>
+        <span className='work__item' onClick={() => setItems(Menu)}>ALL</span>
+        <span className='work__item' onClick={() => filterItem ("PROJECT")}>PROJECT</span>
+        <span className='work__item' onClick={() => filterItem ("BLOG")}>BLOG</span>
         {/* <span className='work__item' onClick={() => filterItem ("Sample")}>Sample</span> */}
       </div>
       <br></br>
@@ -51,7 +51,7 @@ const Portfolio = () => {
                 <div className='work__mask'></div>
               </div>
 
-              <span className='work__category'>{category}</span>
+              <span className='work__category' style={{backgroundColor: category === "PROJECT" ? "#2a3ea7" : "#1ec997"}}>{category}</span>
               <h3 className='work__title'>{title}</h3>
               <a className="work__content">{content}</a>
               <a href={url} className='work__button' target="_blank">&nbsp;<i className={`${iname}`}></i> {buttontitle}&nbsp;</a>

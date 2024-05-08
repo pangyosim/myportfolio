@@ -21,7 +21,7 @@ const Resume = () => {
   return (
     <section className='resume container section' id='resume'>
       <h2 className='section__title'>
-        🎓 경험/교육/경력 
+        🎓 EDUCATION / CAREER
       </h2>
 
       <div className='resume__container grid'>
