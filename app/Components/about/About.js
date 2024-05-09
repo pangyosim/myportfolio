@@ -41,7 +41,7 @@ const About = () => {
         MVC2 아키텍처를 선호하며, J2EE등 다양한 아키텍처들을 경험해보고 싶습니다.<br></br>
         프로젝트를 통해 다양한 사람들과 협력하며, 함께 일하고 공유함으로써 더 나은 결과물을 만들어내려고 노력하고있습니다. 
         </p>
-        <a href='https://drive.google.com/file/d/1O4nbpBPvq1sdifAmc0vG9A9xqWa8BTZb/view?usp=drive_link' target="_blank" className='btn' download={"Simpangyo_Resume"}>이력서보기 &gt;</a>
+        <a href='https://drive.google.com/file/d/1sGEQoco3_hE4oXJl_hTtoAov_jXOOmli/view?usp=drive_link' target="_blank" className='btn' download={"Simpangyo_Resume"}>이력서보기 &gt;</a>
       </div>
 
       <div className='about__skills grid'>
