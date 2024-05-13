@@ -26,7 +26,7 @@ const About = () => {
       </h2>
 
     <div className='about__container grid'>
-      <Image src= "/img/myimage.jpg" alt='Myimg' width={250} height={330} style={{borderRadius:"30px",marginTop:"2vh"}} className='about__img'/>
+      <Image src= "/img/myimg.jpeg" alt='Myimg' width={500} height={400} style={{borderRadius:"30px"}} className='about__img'/>
 
     <div className='about__data grid'>
       <div className='about__info'>
