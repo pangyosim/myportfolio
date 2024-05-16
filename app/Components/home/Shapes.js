@@ -1,15 +1,16 @@
-import React,{ useEffect } from 'react'
-import Image from 'next/image';
+import React from 'react'
+import Spline from '@splinetool/react-spline';
+
 const Shapes = () => {
- 
   return (
     <div className='shapes'>
+    <Spline scene="https://prod.spline.design/6UD4UjoAk7sBH7go/scene.splinecode" />
         {/* <svg
         width="27"
         height="29"
         class="shape s1"
         xmlns="http://www.w3.org/2000/svg"
-      >
+        >
         <path
           d="M21.15625.60099c4.37954 3.67487 6.46544 9.40612 5.47254 15.03526-.9929 5.62915-4.91339 10.30141-10.2846 12.25672-5.37122 1.9553-11.3776.89631-15.75715-2.77856l2.05692-2.45134c3.50315 2.93948 8.3087 3.78663 12.60572 2.22284 4.297-1.5638 7.43381-5.30209 8.22768-9.80537.79387-4.50328-.8749-9.08872-4.37803-12.02821L21.15625.60099z"
           fill="#FFD15C"
@@ -164,4 +165,4 @@ const Shapes = () => {
   )
 }
 
-export default Shapes
+export default Shapes;
