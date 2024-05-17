@@ -101,13 +101,13 @@
     position: absolute;
     top: 0%;
     height: 100%;
-    width: 150%;
+    width: 300%;
     /* background-image: url('/img/backgroundimg.png'); */
     background-size: cover; /* 너비를 100%로 설정하여 화면 너비에 맞게 확장됩니다. */
     background-position: center; /* 배경 이미지가 가운데로 정렬됩니다. */
     background-repeat: no-repeat; /* 배경 이미지가 반복되지 않습니다. */
     opacity: 1;
-    background-image: fill 0 linear-gradient(black,#f8f7fc);
+    /* background-image: fill 0 linear-gradient(black,#f8f7fc); */
 }
 
 

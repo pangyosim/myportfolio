@@ -4,7 +4,7 @@ import Spline from '@splinetool/react-spline';
 const Shapes = () => {
   return (
     <div className='shapes'>
-    <Spline scene="https://prod.spline.design/6UD4UjoAk7sBH7go/scene.splinecode" />
+    <Spline scene="https://prod.spline.design/DrU7XXvwJxTDFwpK/scene.splinecode" />
         {/* <svg
         width="27"
         height="29"
