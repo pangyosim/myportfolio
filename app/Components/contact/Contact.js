@@ -1,6 +1,8 @@
 import React, { useRef,useEffect } from 'react';
 import "./Contact.css";
 import emailjs from "@emailjs/browser";
+import Head from 'next/head';
+import axios from 'axios';
 
 const Contact = () => {
   const form = useRef();
@@ -36,6 +38,10 @@ const Contact = () => {
   
   return (
     <section className='contact container section' id='contact'>
+      <Head>
+        <script async src="https://cdn.iamport.kr/js/iamport.payment-{SDK-최신버전}.js"></script>
+        <script async src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+      </Head>
       <h2 className='section__title'>📩 Contact Me</h2>
       <div className='contact__container grid'>
         <div className='contact__info'>
