@@ -3,12 +3,27 @@ import React, { useState,useEffect } from 'react';
 import "./Portfolio.css";
 import Menu from './Menu';
 import Image from 'next/image';
+import CustomModal from './CustomModal.js';
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 // import Pay from './Pay';
+const item1 = {
+  url:""
+}
 
 const Portfolio = () => {
-
   const [Items,setItems] = useState(Menu)
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentItem, setCurrentItem] = useState("");
+  const openModal = (elem) => {
+    setCurrentItem(elem)
+    setIsModalOpen(true)
+  };
+  const closeModal = () => {
+    setCurrentItem("")
+    setIsModalOpen(false)
+  };
   const filterItem = (categoryItem) => {
     const updatedItems = Menu.filter((curElem) => {
       return curElem.category === categoryItem;
@@ -32,7 +47,7 @@ const Portfolio = () => {
   },[])
   return (
     <section className='work container section' id='work'>
-      <h2 className='section__title' style={{textAlign:"center"}}>🛠️ PROJECT / BLOG</h2>
+      <h2 className='section__title' style={{textAlign:"center"}}>🎨 PROJECT / BLOG</h2>
       <div className='work__filters'>
         <span className='work__item' onClick={() => setItems(Menu)}>ALL</span>
         <span className='work__item' onClick={() => filterItem ("PROJECT")}>PROJECT</span>
@@ -43,7 +58,7 @@ const Portfolio = () => {
       <div className='work__container grid'>
 
         {Items.map((elem) => {
-          const{id,image, title, category,content,url,iname,buttontitle} = elem;
+          const{id,image,title,category,content,url,iname,buttontitle,subtitle} = elem;
           return (
             <div className='work__card' key={id}>
               <div className='work__thumbnail'>
@@ -54,15 +69,29 @@ const Portfolio = () => {
               <span className='work__category' style={{backgroundColor: category === "PROJECT" ? "#2a3ea7" : "#00671d"}}>{category}</span>
               <h3 className='work__title'>{title}</h3>
               <a className="work__content">{content}</a>
-              <a href={url} className='work__button' target="_blank">&nbsp;<i className={`${iname}`}></i> {buttontitle}&nbsp;</a>
-              
+              {category === "PROJECT" ? 
+                <Button className='work__button' onClick={()=> openModal(elem)}>&nbsp;<i className={`${iname}`}></i> {buttontitle}&nbsp;</Button> :
+                <a href={url} className='work__button' target='__blank'>&nbsp;<i className={`${iname}`}></i> {buttontitle}&nbsp;</a>
+              }
               {/* <i className='icon-link work__button-icon'></i> */}
             </div>
           )
         })}
+        <CustomModal
+          open={isModalOpen}
+          onClose={closeModal}
+        >
+          <Box>
+            <Typography variant="h6" component="h2">
+              {currentItem.subtitle}
+            </Typography>
+            <p onClick={closeModal} style={{cursor:"pointer",fontWeight:"bold",fontSize:"30px",width:"30px"}}>X</p>
+          </Box>
+        </CustomModal>
       </div>
     </section>
   )
 }
+
 
 export default Portfolio

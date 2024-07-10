@@ -15,8 +15,8 @@
     transition: .3s;
 }
 
-.work__items:hover {
-    color: var(--first-color);
+.work__item:hover {
+    color: #a39fdf;
 }
 
 .work__container {
@@ -27,7 +27,6 @@
 .work__card{
     white-space: pre-wrap;
     position: relative;
-    cursor: pointer;
     overflow: hidden;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
