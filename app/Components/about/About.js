@@ -72,7 +72,7 @@ const About = () => {
 
         <div className='skills__data'>
           <div className='skills__titles'>
-            <h3 className='skills__name'>SQL</h3>
+            <h3 className='skills__name'>SQL Query</h3>
             <span className='skills__number'>60%</span>
           </div>
 

@@ -51,7 +51,7 @@ const Portfolio = () => {
                 <div className='work__mask'></div>
               </div>
 
-              <span className='work__category' style={{backgroundColor: category === "PROJECT" ? "#2a3ea7" : "#1ec997"}}>{category}</span>
+              <span className='work__category' style={{backgroundColor: category === "PROJECT" ? "#2a3ea7" : "#00671d"}}>{category}</span>
               <h3 className='work__title'>{title}</h3>
               <a className="work__content">{content}</a>
               <a href={url} className='work__button' target="_blank">&nbsp;<i className={`${iname}`}></i> {buttontitle}&nbsp;</a>

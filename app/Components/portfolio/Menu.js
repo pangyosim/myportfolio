@@ -25,6 +25,17 @@ const Menu =[
   },
   {
     id:3,
+    image: "/img/devcvpage.png",
+    title:"이력서 공유 및 판매 사이트",
+    category: "PROJECT",
+    // content: "HTML5, CSS, JavaScript로 웹 페이지를 디자인하고, Spring 및 MyBatis를 이용하여 로그인, 파티 등의 CRUD 기능을 개발했습니다. 인기 TOP10 목록은 JSOUP을 활용하여 데이터크롤링을 구현하였고, 파티가입시에는 포트원 결제 API를 통해 테스트 결제를 처리했습니다.",
+    content: " 🛠️  개발도구 \n 📎 JAVA17     📎 Springboot3.0.1\n 📎 NextJS     📎 JPA \n\n 🧑🏻‍💻  담당업무\n ✅ HTML5,CSS,JavaScript 웹퍼블리싱\n ✅ MyBatis를 이용한 로그인,파티 CRUD\n ✅ 메인페이지 인기TOP10 JSOUP 크롤링\n ✅ 포트원 API 테스트 결제 구현",
+    url:"http://devcv.net",
+    iname: "fa-regular fa-paper-plane",
+    buttontitle: " 바로가기",
+  },
+  {
+    id:4,
     image: "/img/velogimg.png",
     title:"마주했던 에러들을 정리한 velog",
     category: "BLOG",
@@ -34,7 +45,7 @@ const Menu =[
     buttontitle: " velog"
   },
   {
-    id:4,
+    id:5,
     image: "/img/notionpage.png",
     title:"공부했던 내용들을 정리한 Notion",
     category: "BLOG",
@@ -44,8 +55,8 @@ const Menu =[
     buttontitle: " Notion"
   },
   {
-    id:5,
-    image: "/img/githubpage.png",
+    id:6,
+    image: "/img/githubimage.png",
     title:"프로젝트들을 업로드한 Github",
     category: "BLOG",
     content:"\n📌 프로젝트, 개발공부들을 하며 결과물들을 깃허브에 저장하고 있습니다.\n📌 프로젝트를 진행할 때는 해당 프로젝트의 설계나 고민했던 것을 적어가고 있습니다.",
@@ -53,17 +64,5 @@ const Menu =[
     iname: "fa-brands fa-github",
     buttontitle: "Github"
   },
-  // {
-  //   id:6,
-  //   Image: "https://i.ibb.co/zspXP6d/flank.png",
-  //   title:"OYES 테스트 결제 API",
-  //   category: "Sample"
-  // },
-  // {
-  //   id:7,
-  //   Image: "https://i.ibb.co/zspXP6d/flank.png",
-  //   title:"FLANK a gaming app ",
-  //   category: "Sample"
-  // },
 ]
 export default Menu

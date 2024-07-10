@@ -9,7 +9,7 @@ const Home = () => {
   return (
    <section className='home container' id='home'>
    <div className='intro'>
-    <Image src='/img/myimage.png' height={145} width={160} alt='myimg' priority className='home__img'/>
+    <Image src='/img/mimoticon.png' height={145} width={160} alt='myimg' priority className='home__img'/>
     <h1 className='home__name'>심판교 </h1>
     <span className='home__education'>
     Backend 개발자
