@@ -32,7 +32,7 @@ const Portfolio = () => {
   },[])
   return (
     <section className='work container section' id='work'>
-      <h2 className='section__title'>🛠️ PROJECT / BLOG</h2>
+      <h2 className='section__title' style={{textAlign:"center"}}>🛠️ PROJECT / BLOG</h2>
       <div className='work__filters'>
         <span className='work__item' onClick={() => setItems(Menu)}>ALL</span>
         <span className='work__item' onClick={() => filterItem ("PROJECT")}>PROJECT</span>
@@ -60,12 +60,6 @@ const Portfolio = () => {
             </div>
           )
         })}
-
-        {/* <div className='work__card' >
-            
-            <h3 className='work__category' style={{transform: "translateY(0)"}}>OYES 테스트 결제 API</h3>
-            <Pay/>
-        </div> */}
       </div>
     </section>
   )

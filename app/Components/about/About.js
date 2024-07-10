@@ -21,27 +21,28 @@ const About = () => {
   },[])
   return (
     <section className='about container section' id='about'>
-      <h2 className='section__title'>
+      {/* <h2 className='section__title'>
         🧑🏻‍💻 About Me
-      </h2>
+      </h2> */}
 
     <div className='about__container grid'>
       <Image src= "/img/myimg.jpeg" alt='Myimg' width={500} height={400} style={{borderRadius:"30px"}} className='about__img'/>
 
     <div className='about__data grid'>
       <div className='about__info'>
-        <p className='about__description'>
-        {/* 사람의 편익을 위해 무언가를 만드는 것에 흥미를 가지고 있습니다. 
-        인공지능 교육 프로젝트 발표회 대상, 세종시 빅데이터 공모전 본선 진출, 관련 개발 교육을 수강한 경험이 있습니다. <br></br>
-        프로젝트를 통해 다양한 사람들과 협력하며, 함께 일하고 공유함으로써 더 나은 결과물을 만들어내려고 노력하고 있습니다. 
-        성공적인 프로젝트를 완성하여 사람들에게 이로운 서비스를 개발하는 것이 제 목표입니다. */}
-        안녕하세요. 개발자 심판교입니다.<br></br>
-        2021년에 인공지능교육을 시작으로 클라우드엔지니어에서 개발자라는 직업에 도전하려합니다.<br></br>
-        React, Java/JPA/Springboot를 이용하여 웹을 개발한 경험이 있습니다.<br></br>
-        MVC2 아키텍처를 선호하며, J2EE등 다양한 아키텍처들을 경험해보고 싶습니다.<br></br>
-        프로젝트를 통해 다양한 사람들과 협력하며, 함께 일하고 공유함으로써 더 나은 결과물을 만들어내려고 노력하고있습니다. 
+        <p className='about__description' style={{color:"black",fontSize:"20px",fontWeight:"bold"}}>
+          심판교
         </p>
-        <a href='https://drive.google.com/file/d/1sGEQoco3_hE4oXJl_hTtoAov_jXOOmli/view?usp=drive_link' target="_blank" className='btn' download={"Simpangyo_Resume"}>이력서보기 &gt;</a>
+        <p className='about__description' style={{color:"black"}} >
+          1996.12.30<br></br>
+          학력 및 경력사항<br></br><br></br>
+          <i className='icon-graduation' style={{fontWeight:"bold"}}> 2016.03-2022.02</i> <br></br>강원대학교 바이오시스템공학과 졸업<br></br>
+          <i className='icon-graduation' style={{fontWeight:"bold"}}> 2021.05-2021.11</i> <br></br>인공지능 자연어처리(NLP기반)과정 이수<br></br>
+          <i className='icon-graduation' style={{fontWeight:"bold"}}> 2022.08-2022.11</i> <br></br>Azure cloud 전문가양성과정 이수<br></br>
+          <i className='icon-graduation' style={{fontWeight:"bold"}}> 2023.08-2024.02</i> <br></br>Spring기반 개발자 양성과정 이수<br></br><br></br>
+          <i className='icon-briefcase' style={{fontWeight:"bold"}}> 前메타넷디지털 클라우드엔지니어</i> <br></br>
+        </p>
+        {/* <a href='https://drive.google.com/file/d/1sGEQoco3_hE4oXJl_hTtoAov_jXOOmli/view?usp=drive_link' target="_blank" className='btn' download={"Simpangyo_Resume"}>이력서보기 &gt;</a> */}
       </div>
 
       <div className='about__skills grid'>
@@ -71,8 +72,8 @@ const About = () => {
 
         <div className='skills__data'>
           <div className='skills__titles'>
-            <h3 className='skills__name'>Mybatis</h3>
-            <span className='skills__number'>50%</span>
+            <h3 className='skills__name'>SQL</h3>
+            <span className='skills__number'>60%</span>
           </div>
 
           <div className='skills__bar'>
@@ -83,7 +84,7 @@ const About = () => {
         <div className='skills__data'>
           <div className='skills__titles'>
             <h3 className='skills__name'>Cloud</h3>
-            <span className='skills__number'>60%</span>
+            <span className='skills__number'>80%</span>
           </div>
 
           <div className='skills__bar'>

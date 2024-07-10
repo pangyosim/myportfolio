@@ -12,7 +12,7 @@ const Home = () => {
     <Image src='/img/myimage.png' height={145} width={160} alt='myimg' priority className='home__img'/>
     <h1 className='home__name'>심판교 </h1>
     <span className='home__education'>
-    JAVA 개발자
+    Backend 개발자
     </span>
 
     <HeaderSocials/>

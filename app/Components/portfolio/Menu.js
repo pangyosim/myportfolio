@@ -18,7 +18,7 @@ const Menu =[
     title:"주변 은행 대기인원 현황 사이트",
     category: "PROJECT",
     // content:"공공데이터 IBK기업은행 대기현황 API, Naver maps API, 주차장 정보 API를 활용하여 현재 위치 근처 은행 대기현황, 주차장 현황을 Map에 표시해주는 웹사이트를 구현했습니다. 공지사항, Q&A, React localStorage 및 CRUD로 로그인 기능을 구현하였습니다.",
-    content:" 🛠️  개발도구 \n 📎 JAVA11      📎 Springboot2.7.17\n 📎 React        📎 JPA,JPQL \n\n 🧑🏻‍💻  담당업무\n ✅ React 메인,은행,주차장 웹퍼블리싱 \n ✅ JPA,JPQL 은행지점코드로 DB데이터조회\n ✅ NaverMapsAPI,GeolocationAPI\n ✅ 은행대기인원API,주차장정보API\n ✅ 공지사항, Q&A CRUD",
+    content:" 🛠️  개발도구 \n 📎 JAVA11      📎 Springboot2.7.17\n 📎 React        📎 JPA,JPQL \n\n 🧑🏻‍💻  담당업무\n ✅ JPA,JPQL 은행지점코드로 DB데이터조회\n ✅ NaverMapsAPI,GeolocationAPI\n ✅ 은행대기인원API,주차장정보API\n ✅ 공지사항, Q&A CRUD",
     url:"https://server.dwbb.kro.kr",
     iname: "fa-regular fa-paper-plane",
     buttontitle: " 바로가기"

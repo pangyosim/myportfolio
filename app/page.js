@@ -15,7 +15,6 @@ const page = () => {
       <main className='main'>
       <Home/>
       <About/>
-      <Resume/>
       <Portfolio/>
       <Contact/>
       </main>

@@ -42,7 +42,7 @@ const Contact = () => {
         <script async src="https://cdn.iamport.kr/js/iamport.payment-{SDK-최신버전}.js"></script>
         <script async src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
       </Head>
-      <h2 className='section__title'>📩 Contact Me</h2>
+      <h2 className='section__title' style={{textAlign:"center"}}>📩 Contact Me</h2>
       <div className='contact__container grid'>
         <div className='contact__info'>
           <h3 className='contact__title'> <i className="fa-solid fa-envelope"></i> &nbsp;&nbsp;spg9687@gmail.com</h3><br></br><br></br>
@@ -61,7 +61,7 @@ const Contact = () => {
           </div>
 
           <div className='contact__form-div contact__form-area'>
-            <textarea className='contact__form-input' name="ask_message" placeholder="내용" required></textarea>
+            <textarea className='contact__form-input' name="ask_message" placeholder="내용" style={{paddingTop:"20px"}} required></textarea>
           </div>
           <button className='btn' type="submit" value="메일 보내기">메일보내기</button>
         </form>
