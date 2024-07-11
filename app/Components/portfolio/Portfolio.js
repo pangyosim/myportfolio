@@ -109,7 +109,7 @@ const Portfolio = () => {
                   return(
                       <Box display="flex" key={index}>
                         <Image src={e.image} width={350} height={350} alt='image' style={{float:"left"}}/>
-                        <Box>
+                        <Box marginLeft={50}>
                           <Typography variant='subtitle1' component="div" style={{fontWeight:"bold",marginBottom:"15px"}}>{e.title}</Typography>
                           {e.contents.map((e,index)=> {return(<Typography variant='subtitle2' component="div" key={index}>{e}</Typography>)})}<br></br>
                           <Typography variant='subtitle2' component="div">{e.skills}</Typography>
