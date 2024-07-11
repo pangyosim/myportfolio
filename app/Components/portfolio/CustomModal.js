@@ -11,11 +11,11 @@ const CustomModal = ({ open, closeModal, children }) => {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: 1000,
+          width: 1200,
           maxWidth: "100%",
           maxHeight: "100%",
           overflowY: "auto",
-          padding:"1rem",
+          padding:"2rem",
           borderRadius: "20px",
         }}
       >

@@ -14,10 +14,10 @@ const About = () => {
           container.style.animation = 'appear_from_bottom ease 1.5s'
           container.style.opacity = 1
       },200) 
-        window.removeEventListener('scroll',eventHandler)
+        window.removeEventListener('scroll',eventHandler,{ passive: true })
       }
     }
-    window.addEventListener('scroll',eventHandler)
+    window.addEventListener('scroll',eventHandler,{ passive: true })
   },[])
   return (
     <section className='about container section' id='about'>

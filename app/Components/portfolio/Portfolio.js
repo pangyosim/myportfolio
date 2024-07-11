@@ -7,21 +7,20 @@ import CustomModal from './CustomModal.js';
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-// import Pay from './Pay';
-const item1 = {
-  url:""
-}
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 const Portfolio = () => {
   const [Items,setItems] = useState(Menu)
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentItem, setCurrentItem] = useState("");
+  const [currentItem, setCurrentItem] = useState(null);
   const openModal = (elem) => {
     setCurrentItem(elem)
     setIsModalOpen(true)
   };
   const closeModal = () => {
-    setCurrentItem("")
+    setCurrentItem(null)
     setIsModalOpen(false)
   };
   const filterItem = (categoryItem) => {
@@ -40,11 +39,20 @@ const Portfolio = () => {
           container.style.animation = 'appear_from_bottom ease 1.5s'
           container.style.opacity = 1
       },200) 
-        window.removeEventListener('scroll',eventHandler)
+        window.removeEventListener('scroll',eventHandler,{ passive: true })
       }
     }
-    window.addEventListener('scroll',eventHandler)
+    window.addEventListener('scroll',eventHandler,{ passive: true })
   },[])
+
+  const sliderSettings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    speed: 500
+  };
+
   return (
     <section className='work container section' id='work'>
       <h2 className='section__title' style={{textAlign:"center"}}>🎨 PROJECT / BLOG</h2>
@@ -52,17 +60,16 @@ const Portfolio = () => {
         <span className='work__item' onClick={() => setItems(Menu)}>ALL</span>
         <span className='work__item' onClick={() => filterItem ("PROJECT")}>PROJECT</span>
         <span className='work__item' onClick={() => filterItem ("BLOG")}>BLOG</span>
-        {/* <span className='work__item' onClick={() => filterItem ("Sample")}>Sample</span> */}
       </div>
       <br></br>
       <div className='work__container grid'>
 
-        {Items.map((elem) => {
-          const{id,image,title,category,content,url,iname,buttontitle,subtitle} = elem;
+        {Items.map((elem,index) => {
+          const{id,image,title,category,content,url,iname,buttontitle,subtitle,features,subcontent,github,main} = elem;
           return (
-            <div className='work__card' key={id}>
+            <div className='work__card' key={index}>
               <div className='work__thumbnail'>
-                <Image src={image} width={1000} height={1000} alt="" className='work__img'/>
+                <Image src={image} width={700} height={700} alt="image" className='work__img'/>
                 <div className='work__mask'></div>
               </div>
 
@@ -73,7 +80,6 @@ const Portfolio = () => {
                 <Button className='work__button' onClick={()=> openModal(elem)}>&nbsp;<i className={`${iname}`}></i> {buttontitle}&nbsp;</Button> :
                 <a href={url} className='work__button' target='__blank'>&nbsp;<i className={`${iname}`}></i> {buttontitle}&nbsp;</a>
               }
-              {/* <i className='icon-link work__button-icon'></i> */}
             </div>
           )
         })}
@@ -82,10 +88,36 @@ const Portfolio = () => {
           onClose={closeModal}
         >
           <Box>
-            <Typography variant="h6" component="h2">
-              {currentItem.subtitle}
-            </Typography>
-            <p onClick={closeModal} style={{cursor:"pointer",fontWeight:"bold",fontSize:"30px",width:"30px"}}>X</p>
+            <p onClick={closeModal} style={{cursor:"pointer",fontWeight:"bold",fontSize:"30px",width:"30px",position:"absolute"}}>X</p>
+            <Box style={{paddingTop:"30px"}}>
+              <Typography variant='h4' component="div" style={{textAlign:"center",fontWeight:"bold"}}>{currentItem && currentItem.subtitle}</Typography>
+              <Typography variant='h6' component="div" style={{textAlign:"center"}}>{currentItem && currentItem.subcontent}</Typography>
+              <Button onClick={()=>{currentItem && window.open(`${currentItem.url}`)}} style={{float:"right",cursor:"pointer"}}>사이트 바로가기</Button>
+              <Button onClick={()=>{currentItem && window.open(`${currentItem.github}`)}} style={{float:"right",cursor:"pointer"}}>Github 바로가기</Button>
+            </Box>
+            <Box display="flex" style={{marginTop:"30px"}}>
+              <Image src={currentItem && currentItem.main.image} width={500} height={500} alt='main'/>
+              <Box style={{marginTop:"30px"}}>
+                <Typography variant='h7' component="div" style={{fontSize:"25px",fontWeight:"bold"}}>{currentItem && currentItem.main.title}</Typography>
+                <Typography variant='subtitle1' component="div" style={{marginTop:"20px",fontSize:"17px",fontWeight:"bold"}}>🛠️ 기능 요약</Typography>
+                <Typography variant='subtitle2' component="div" style={{fontSize:"15px"}}>{currentItem && currentItem.main.skills}</Typography>
+              </Box>
+            </Box>
+            <Typography variant='h5' component="div" style={{marginTop:"20px",fontWeight:"bold"}}>🛠️ 기능 상세</Typography><br></br>
+            <Slider {...sliderSettings}>
+                {currentItem && currentItem.features.map((e,index)=>{
+                  return(
+                      <Box display="flex" key={index} p={1}>
+                        <Image src={e.image} width={350} height={350} alt='image'/>
+                        <Box mt={3}>
+                          <Typography variant='subtitle1' component="div" style={{fontWeight:"bold",marginBottom:"15px"}}>{e.title}</Typography>
+                          {e.contents.map((e,index)=> {return(<Typography variant='subtitle2' component="div" key={index}>{e}</Typography>)})}<br></br>
+                          <Typography variant='subtitle2' component="div">{e.skills}</Typography>
+                        </Box>
+                      </Box>
+                  )
+                })}
+            </Slider>
           </Box>
         </CustomModal>
       </div>
