@@ -46,11 +46,11 @@ const Portfolio = () => {
   },[])
 
   const sliderSettings = {
-    dots: false,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    speed: 500
+    autoplay: true,
+    arrows: true
   };
 
   return (
@@ -87,38 +87,40 @@ const Portfolio = () => {
           open={isModalOpen}
           onClose={closeModal}
         >
-          <Box>
-            <p onClick={closeModal} style={{cursor:"pointer",fontWeight:"bold",fontSize:"30px",width:"30px",position:"absolute"}}>X</p>
-            <Box style={{paddingTop:"30px"}}>
-              <Typography variant='h4' component="div" style={{textAlign:"center",fontWeight:"bold"}}>{currentItem && currentItem.subtitle}</Typography>
-              <Typography variant='h6' component="div" style={{textAlign:"center"}}>{currentItem && currentItem.subcontent}</Typography>
-              <Button onClick={()=>{currentItem && window.open(`${currentItem.url}`)}} style={{float:"right",cursor:"pointer"}}>사이트 바로가기</Button>
-              <Button onClick={()=>{currentItem && window.open(`${currentItem.github}`)}} style={{float:"right",cursor:"pointer"}}>Github 바로가기</Button>
-            </Box>
-            <Box display="flex" style={{marginTop:"30px"}}>
+          <div className="modal__wrap">
+            <p className="modal__close__text" onClick={closeModal}>X</p>
+            <div className="modal__title">
+              <h1>{currentItem && currentItem.subtitle}</h1>
+              <h3>{currentItem && currentItem.subcontent}</h3>
+            </div>
+            <div className="modal__moreview">
+              <Button onClick={()=>{currentItem && window.open(`${currentItem.url}`)}}><i className="fa-regular fa-paper-plane"></i>&nbsp;사이트 바로가기</Button>
+              <Button onClick={()=>{currentItem && window.open(`${currentItem.github}`)}}><i className="fa-brands fa-github"></i>&nbsp;Github 바로가기</Button>
+            </div>
+            <div className="modal__main">
               <Image src={currentItem && currentItem.main.image} width={500} height={500} alt='main'/>
-              <Box style={{marginTop:"30px"}}>
-                <Typography variant='h7' component="div" style={{fontSize:"25px",fontWeight:"bold"}}>{currentItem && currentItem.main.title}</Typography>
-                <Typography variant='subtitle1' component="div" style={{marginTop:"20px",fontSize:"17px",fontWeight:"bold"}}>🛠️ 기능 요약</Typography>
-                <Typography variant='subtitle2' component="div" style={{fontSize:"15px"}}>{currentItem && currentItem.main.skills}</Typography>
-              </Box>
-            </Box>
-            <Typography variant='h5' component="div" style={{marginTop:"20px",fontWeight:"bold"}}>🛠️ 기능 상세</Typography><br></br>
+              <div className="modal__main__inner">
+                <p className='modal__main__title'>{currentItem && currentItem.main.title}</p>
+                <p className="modal__main__features">🧑🏻‍💻 WORKS</p>
+                <p className="modal__main__skills">{currentItem && currentItem.main.skills}</p>
+              </div>
+            </div>
+            <h2 className="modal__main__skills__details">🛠️ FEATURE DETAILS</h2><br></br>
             <Slider {...sliderSettings}>
                 {currentItem && currentItem.features.map((e,index)=>{
                   return(
-                      <Box display="flex" key={index}>
+                      <div className="modal__skills__details__wrap" key={index}>
                         <Image src={e.image} width={350} height={350} alt='image' style={{float:"left"}}/>
-                        <Box marginLeft={50}>
-                          <Typography variant='subtitle1' component="div" style={{fontWeight:"bold",marginBottom:"15px"}}>{e.title}</Typography>
+                        <div className="modal__skills__details__inner">
+                          <p className="modal__skills__details__title">{e.title}</p>
                           {e.contents.map((e,index)=> {return(<Typography variant='subtitle2' component="div" key={index}>{e}</Typography>)})}<br></br>
-                          <Typography variant='subtitle2' component="div">{e.skills}</Typography>
-                        </Box>
-                      </Box>
+                          <p>{e.skills}</p>
+                        </div>
+                      </div>
                   )
                 })}
             </Slider>
-          </Box>
+          </div>
         </CustomModal>
       </div>
     </section>
