@@ -22,24 +22,24 @@ const Menu =[
         image: "/img/springsecurity.jpeg",
         title: "🔍 Spring Security Authentication/Authorization",
         contents: ["1️⃣ Spring Security Filter중 OncePerRequestFilter로 JWT Token을 유효성검사(Expired,Signature) 구현.",
-                   "2️⃣ JWT(JsonWebToken)으로 평문을 hex64 Secretkey로 암호화(BASE64,HS512)하여 FE와 통신.",
+                   "2️⃣ JWT(JsonWebToken)으로 평문을 hex64 Secretkey로 암호화(BASE64,HS512)하여 통신.",
                    "3️⃣ RefreshToken JWT 토큰으로 AccessToken 재발급기능구현.",
                    "4️⃣ Security Authenticaiton에서 Authorizes로 관리자와 일반 권한을 분리."],
-        skills: "⚡️TOOLS: SpringSecurity,JsonWebToken,OncePerRequestFilter"
+        skills: "SpringSecurity,JsonWebToken, OncePerRequestFilter,AuthenticationEntryPoint, AccessDeniedHandler"
       },
       {
         image: "/img/devcv_BE.drawio.png",
         title: "🔍 Jenkins CI/CD",
         contents: ["1️⃣ CI: GithubWebhook으로 변경사항을 확인하여 빌드.",
                    "2️⃣ CD: PublishOverSSH로 배포서버에 접근 및 Dockerfile,deploy.sh,docker-compose.yml로서버에 배포."],
-        skills: "⚡️TOOLS: GithubWebhook,Jenkins,Docker,Docker-Compose,ScriptFile"
+        skills: "GithubWebhook,Jenkins,Docker,Docker-Compose,ScriptFile"
       },
       {
         image: "/img/devcvloginpage.png",
         title: "🔍 회원기능",
         contents: ["1️⃣ 회원가입: Security PasswordEncoder로 암호화하여 AWS RDS에 저장.",
                    "2️⃣ 소셜로그인: FE측으로부터 받은 회원정보 접근 AccessToken으로 소셜 서버에 RestTemplates 클래스로 Http 요청을 전송하게 구현."],
-        skills: "⚡️TOOLS: JPA,RestTemplates,HttpServlet,JavaMailSender,AWS RDS"
+        skills: "JPA,RestTemplates,HttpServlet, JavaMailSender,AWS RDS"
       }],
   },
   {
@@ -68,21 +68,21 @@ const Menu =[
                    "2️⃣ Haversine 공식으로 내 근처 5km 이내 은행 데이터 준비.",
                    "3️⃣ Frontend(React)로 내 근처 5km 이내 은행 대기인원 현황 JSON형식으로 response.",
                    "🚨 API SERVER ERROR 발생시 : try/catch로 jsonparse exception 발생시켜 JSON데이터에 추가 후 응답."],
-        skills: "⚡️TOOLS: NaverMapsAPI,GeolocationAPI,HavorsineFormula,공공데이터API(중소기업은행,서울주차장)"
+        skills: "NaverMapsAPI,GeolocationAPI, HavorsineFormula,공공데이터API(중소기업은행,서울주차장)"
       },
       {
         image: "/img/dwbbmemberpage.png",
         title: "🔍 회원기능",
         contents: ["1️⃣ JPA 회원가입, 로그인구현.",
                    "2️⃣ 아이디/비밀번호 찾기시 이메일인증번호 전송."],
-        skills: "⚡️TOOLS: JPA, JavaMailSender"
+        skills: "JPA,JavaMailSender"
       },
       {
         image: "/img/dwbbqnapage.png",
         title: "🔍 공지사항/Q&A 게시판기능",
         contents: ["1️⃣ 공지사항: 관리자(글작성),일반회원조회",
                    "2️⃣ Q&A: 관리자(삭제/댓글),일반회원(작성/본인글삭제)"],
-        skills: "⚡️TOOLS: JPA"
+        skills: "JPA"
       }],
   },
   {
@@ -108,7 +108,7 @@ const Menu =[
         contents: ["1️⃣ JSOUP 라이브러리로 netflix, watcha Top10 안내페이지 크롤링 구현.",
                    "2️⃣ netflix, watcha data GET API요청 분리하여 구현.",
                    "3️⃣ DTO 생성후 JSOUP Elements 객체로 변환."],
-        skills: "⚡️TOOLS: JSOUP,Elements"
+        skills: "JSOUP,Elements"
       },
       {
         image: "/img/oyespartypage.png",
@@ -116,7 +116,7 @@ const Menu =[
         contents: ["1️⃣ Interceptor로 로그인안된 사용자들 loginPage로 이동.",
                    "2️⃣ 계좌등록시 파티장권한등록.",
                    "3️⃣ 파티가입시 파티참가인원수정."],
-        skills: "⚡️TOOLS: Mybatis, Interceptor"
+        skills: "Mybatis,Interceptor"
       }]
   },
   {

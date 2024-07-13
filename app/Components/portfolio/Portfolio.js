@@ -5,8 +5,6 @@ import Menu from './Menu';
 import Image from 'next/image';
 import CustomModal from './CustomModal.js';
 import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -50,6 +48,7 @@ const Portfolio = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
+    speed: 2000,
     arrows: true
   };
 
@@ -63,7 +62,6 @@ const Portfolio = () => {
       </div>
       <br></br>
       <div className='work__container grid'>
-
         {Items.map((elem,index) => {
           const{id,image,title,category,content,url,iname,buttontitle,subtitle,features,subcontent,github,main} = elem;
           return (
@@ -88,7 +86,8 @@ const Portfolio = () => {
           onClose={closeModal}
         >
           <div className="modal__wrap">
-            <p className="modal__close__text" onClick={closeModal}>X</p>
+            {/* <p className="modal__close__text" onClick={closeModal}>X</p> */}
+            <i className="fa-solid fa-xmark" onClick={closeModal} style={{fontSize:"30px",position:"absolute"}}></i>
             <div className="modal__title">
               <h1>{currentItem && currentItem.subtitle}</h1>
               <h3>{currentItem && currentItem.subcontent}</h3>
@@ -105,7 +104,7 @@ const Portfolio = () => {
                 <p className="modal__main__skills">{currentItem && currentItem.main.skills}</p>
               </div>
             </div>
-            <h2 className="modal__main__skills__details">🛠️ FEATURE DETAILS</h2><br></br>
+            <h2 className="modal__main__skills__details">📍 FEATURE DETAILS</h2><br></br>
             <Slider {...sliderSettings}>
                 {currentItem && currentItem.features.map((e,index)=>{
                   return(
@@ -113,7 +112,8 @@ const Portfolio = () => {
                         <Image src={e.image} width={350} height={350} alt='image' style={{float:"left"}}/>
                         <div className="modal__skills__details__inner">
                           <p className="modal__skills__details__title">{e.title}</p>
-                          {e.contents.map((e,index)=> {return(<Typography variant='subtitle2' component="div" key={index}>{e}</Typography>)})}<br></br>
+                          {e.contents.map((e,index)=> {return(<p key={index}>{e}</p>)})}<br></br>
+                          <p style={{fontWeight:"bold"}}>⚡️TOOLS</p>
                           <p>{e.skills}</p>
                         </div>
                       </div>
