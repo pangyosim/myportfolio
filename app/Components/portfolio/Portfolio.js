@@ -13,13 +13,16 @@ const Portfolio = () => {
   const [Items,setItems] = useState(Menu)
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentItem, setCurrentItem] = useState(null);
+  const [ariaHidden, setAriaHidden] = useState(false);
   const openModal = (elem) => {
     setCurrentItem(elem)
+    setAriaHidden(true)
     setIsModalOpen(true)
   };
   const closeModal = () => {
     setCurrentItem(null)
     setIsModalOpen(false)
+    setAriaHidden(false)
   };
   const filterItem = (categoryItem) => {
     const updatedItems = Menu.filter((curElem) => {
@@ -47,9 +50,11 @@ const Portfolio = () => {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    // autoplay: true,
     speed: 2000,
-    arrows: true
+    arrows: true,
+    // nextArrow: <NextArrow/>,
+    // prevArrow: <PrevArrow/>,
   };
 
   return (
@@ -67,7 +72,7 @@ const Portfolio = () => {
           return (
             <div className='work__card' key={index}>
               <div className='work__thumbnail'>
-                <Image src={image} width={700} height={700} alt="image" className='work__img'/>
+                <Image src={image} width={700} height={700} alt="image" className='work__img' aria-hidden="true"/>
                 <div className='work__mask'></div>
               </div>
 
@@ -85,9 +90,9 @@ const Portfolio = () => {
           open={isModalOpen}
           onClose={closeModal}
         >
-          <div className="modal__wrap">
+          <div className="modal__wrap" aria-hidden={ariaHidden}>
             {/* <p className="modal__close__text" onClick={closeModal}>X</p> */}
-            <i className="fa-solid fa-xmark" onClick={closeModal} style={{fontSize:"30px",position:"absolute"}}></i>
+            <p className="modal__close__text"><i className="fa-solid fa-xmark" onClick={closeModal} style={{fontSize:"30px",position:"absolute"}}></i></p>
             <div className="modal__title">
               <h1>{currentItem && currentItem.subtitle}</h1>
               <h3>{currentItem && currentItem.subcontent}</h3>
@@ -97,7 +102,7 @@ const Portfolio = () => {
               <Button onClick={()=>{currentItem && window.open(`${currentItem.github}`)}}><i className="fa-brands fa-github"></i>&nbsp;Github 바로가기</Button>
             </div>
             <div className="modal__main">
-              <Image src={currentItem && currentItem.main.image} width={500} height={500} alt='main'/>
+              <Image src={currentItem && currentItem.main.image} width={500} height={500} alt='main' />
               <div className="modal__main__inner">
                 <p className='modal__main__title'>{currentItem && currentItem.main.title}</p>
                 <p className="modal__main__features">🧑🏻‍💻 WORKS</p>
@@ -108,9 +113,9 @@ const Portfolio = () => {
             <Slider {...sliderSettings}>
                 {currentItem && currentItem.features.map((e,index)=>{
                   return(
-                      <div className="modal__skills__details__wrap" key={index}>
-                        <Image src={e.image} width={350} height={350} alt='image' style={{float:"left"}}/>
-                        <div className="modal__skills__details__inner">
+                      <div className="modal__skills__details__wrap" key={index} aria-hidden={ariaHidden}>
+                        <Image src={e.image} width={350} height={350} alt='image' style={{float:"left"}} />
+                        <div className="modal__skills__details__inner" >
                           <p className="modal__skills__details__title">{e.title}</p>
                           {e.contents.map((e,index)=> {return(<p key={index}>{e}</p>)})}<br></br>
                           <p style={{fontWeight:"bold"}}>⚡️TOOLS</p>

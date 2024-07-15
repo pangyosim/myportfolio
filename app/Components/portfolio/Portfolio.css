@@ -141,9 +141,11 @@
     font-size: 30px;
     width: 30px;
     position: absolute;
+    transition: all 0.1s linear;
 }
 .modal__close__text:hover {
     color: lightgray;
+    transform: scale(1.1);
 }
 .modal__moreview {
     text-align: right;
@@ -180,6 +182,7 @@
 }
 .modal__skills__details__wrap {
     display: flex;
+    height: 100px;
 }
 .modal__skills__details__wrap .modal__skills__details__inner {
     margin-left: 370px;
