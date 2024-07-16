@@ -9,6 +9,27 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "red" }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "green" }}
+      onClick={onClick}
+    />
+  );
+}
 const Portfolio = () => {
   const [Items,setItems] = useState(Menu)
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -50,11 +71,13 @@ const Portfolio = () => {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    // autoplay: true,
+    autoplay: true,
     speed: 2000,
     arrows: true,
-    // nextArrow: <NextArrow/>,
-    // prevArrow: <PrevArrow/>,
+    slide: 'div',
+    pauseOnHover : true,
+    prevArrow : <SamplePrevArrow/>,	
+	  nextArrow : <SampleNextArrow/>,
   };
 
   return (

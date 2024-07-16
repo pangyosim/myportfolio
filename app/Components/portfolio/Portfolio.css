@@ -182,9 +182,11 @@
 }
 .modal__skills__details__wrap {
     display: flex;
+    width: 30%;
     height: 100px;
 }
 .modal__skills__details__wrap .modal__skills__details__inner {
+    width: 65%;
     margin-left: 370px;
 }
 .modal__skills__details__inner .modal__skills__details__title {
