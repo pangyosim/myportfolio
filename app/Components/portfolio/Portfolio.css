@@ -193,6 +193,30 @@
     font-weight: bold;
     margin-bottom: 15px;
 }
+.modal__arrow__prev {
+    width: 25px;
+    font-size:"25px";
+    font-weight: bold;
+    text-align:"center";
+    cursor: pointer;
+    z-index: 9999;
+    transition: all 0.1s linear;
+}
+.modal__arrow__prev:hover {
+    transform: translateX(-10px);
+}
+.modal__arrow__next {
+    width: 25px;
+    font-size:"25px";
+    font-weight: bold;
+    text-align:"center";
+    cursor: pointer;
+    z-index: 9999;
+    transition: all 0.1s linear;
+}
+.modal__arrow__next:hover {
+    transform: translateX(10px);
+}
 @keyframes appear_from_bottom{
     0%{
       transform: translateY(150px);

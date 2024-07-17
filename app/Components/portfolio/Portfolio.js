@@ -13,10 +13,11 @@ function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
-      className={className}
-      style={{ ...style, display: "block", background: "red" }}
+      className="modal__arrow__next"
       onClick={onClick}
-    />
+    >
+      <i class="fa-solid fa-chevron-right">&nbsp;next</i>
+    </div>
   );
 }
 
@@ -24,10 +25,11 @@ function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
-      className={className}
-      style={{ ...style, display: "block", background: "green" }}
+      className="modal__arrow__prev"
       onClick={onClick}
-    />
+    >
+      <i class="fa-solid fa-chevron-left">&nbsp;prev</i>
+    </div>
   );
 }
 const Portfolio = () => {
@@ -71,11 +73,9 @@ const Portfolio = () => {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
-    speed: 2000,
+    // autoplay: true,
+    speed: 1000,
     arrows: true,
-    slide: 'div',
-    pauseOnHover : true,
     prevArrow : <SamplePrevArrow/>,	
 	  nextArrow : <SampleNextArrow/>,
   };
