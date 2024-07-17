@@ -37,7 +37,7 @@ const About = () => {
           1996.12.30<br></br>
           학력 및 경력사항<br></br><br></br>
           <i className='icon-graduation' style={{fontWeight:"bold"}}> 2016.03-2022.02</i> <br></br>강원대학교 바이오시스템공학과 졸업<br></br>
-          <i className='icon-graduation' style={{fontWeight:"bold"}}> 2021.05-2021.11</i> <br></br>인공지능 자연어처리NLP기반 과정 이수<br></br>
+          {/* <i className='icon-graduation' style={{fontWeight:"bold"}}> 2021.05-2021.11</i> <br></br>인공지능 자연어처리NLP기반 과정 이수<br></br> */}
           <i className='icon-graduation' style={{fontWeight:"bold"}}> 2022.08-2022.11</i> <br></br>Azure cloud 전문가양성과정 이수<br></br>
           <i className='icon-graduation' style={{fontWeight:"bold"}}> 2023.08-2024.02</i> <br></br>Spring기반 개발자 양성과정 이수<br></br><br></br>
           <i className='icon-briefcase' style={{fontWeight:"bold"}}> 前메타넷디지털 클라우드엔지니어</i> <br></br>
