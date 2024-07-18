@@ -5,16 +5,21 @@
     grid-template-columns: 3fr 5fr;
     column-gap: 1.875rem;
 }
+
 .about__info {
     color: black;
 }
+
+.about__name {
+    font-family: "Anton SC", sans-serif;
+}
+
 .about__data{
     padding: 1.875rem;
     background-color: var(--container-color);
     box-shadow: var(--shadow);
     border-radius: var(--border-radius);
-    grid-template-columns: repeat(1, 2fr);
-    column-gap: 1.875rem;
+    grid-template-columns: repeat(1, 1fr);
     align-items: flex-start;
     position: relative;
 }
@@ -30,6 +35,10 @@
     left: 0.93rem;
     left: -0.93rem;
     top: 20%;
+}
+
+.about__info__content{
+    font-size: 13px;
 }
 
 .about__description {
@@ -94,6 +103,7 @@
     grid-template-columns: repeat(1,1fr);
     display: flex;
     column-gap: 0.2rem;
+    row-gap: 0.5rem;
     margin-top: 2.35rem;
     flex-wrap: wrap;
     justify-content: center;

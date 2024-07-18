@@ -16,7 +16,7 @@ function SampleNextArrow(props) {
       className="modal__arrow__next"
       onClick={onClick}
     >
-      <i class="fa-solid fa-chevron-right">&nbsp;next</i>
+      <i className="fa-solid fa-chevron-right">&nbsp;NEXT</i>
     </div>
   );
 }
@@ -28,7 +28,7 @@ function SamplePrevArrow(props) {
       className="modal__arrow__prev"
       onClick={onClick}
     >
-      <i class="fa-solid fa-chevron-left">&nbsp;prev</i>
+      <i className="fa-solid fa-chevron-left">&nbsp;prev</i>
     </div>
   );
 }
@@ -127,13 +127,16 @@ const Portfolio = () => {
             <div className="modal__main">
               <Image src={currentItem && currentItem.main.image} width={500} height={500} alt='main' />
               <div className="modal__main__inner">
+                <p>{currentItem && currentItem.main.deadline}</p>
                 <p className='modal__main__title'>{currentItem && currentItem.main.title}</p>
                 <p>{currentItem && currentItem.innercontent}</p>
+                <p className="modal__main__features"><i class="fa-solid fa-people-group"></i> TEAM</p>
+                <p>{currentItem && currentItem.main.members}</p>
                 <p className="modal__main__features">🧑🏻‍💻 WORKS</p>
                 <p className="modal__main__skills">{currentItem && currentItem.main.skills}</p>
               </div>
             </div>
-            <h2 className="modal__main__skills__details">📍 FEATURE DETAILS</h2><br></br>
+            <h2 className="modal__main__skills__details">📍 FEATURE DETAILS</h2>
             <Slider {...sliderSettings}>
                 {currentItem && currentItem.features.map((e,index)=>{
                   return(
