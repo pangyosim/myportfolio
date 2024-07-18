@@ -91,7 +91,7 @@ const Portfolio = () => {
       <br></br>
       <div className='work__container grid'>
         {Items.map((elem,index) => {
-          const{id,image,title,category,content,url,iname,buttontitle,subtitle,features,subcontent,github,main} = elem;
+          const{id,image,title,category,content,url,iname,buttontitle,subtitle,innercontent,features,subcontent,github,main} = elem;
           return (
             <div className='work__card' key={index}>
               <div className='work__thumbnail'>
@@ -128,6 +128,7 @@ const Portfolio = () => {
               <Image src={currentItem && currentItem.main.image} width={500} height={500} alt='main' />
               <div className="modal__main__inner">
                 <p className='modal__main__title'>{currentItem && currentItem.main.title}</p>
+                <p>{currentItem && currentItem.innercontent}</p>
                 <p className="modal__main__features">🧑🏻‍💻 WORKS</p>
                 <p className="modal__main__skills">{currentItem && currentItem.main.skills}</p>
               </div>
