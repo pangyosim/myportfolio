@@ -59,7 +59,7 @@ const AboutBox = () => {
                 <span className='about__title'>&nbsp;&nbsp;AWS</span>
             </div>
         </div>
-        <div className='about__box'>
+        {/* <div className='about__box'>
             <div className='about__box__inner'>
                 <Image className="about__image" src="/img/github.png" alt="githubimage" width={30} height={30} style={{width: 30, height: 30}}/>
                 <span className='about__title' style={{color:"black"}}>&nbsp;Github</span>
@@ -82,7 +82,7 @@ const AboutBox = () => {
                 <Image className="about__image" src="/img/jira.png" alt="jiraimage" width={25} height={25} style={{width: 25, height: 25}}/>
                 <span className='about__title' style={{color:"#2c3d5d"}}>&nbsp;Jira</span>
             </div>
-        </div>
+        </div> */}
      </div>
   )
 }
