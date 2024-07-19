@@ -37,6 +37,12 @@ const AboutBox = () => {
         </div>
         <div className='about__box'>
             <div className='about__box__inner'>
+                <Image className="about__image" src="/img/oracle.png" alt="oracleimage" width={35} height={25} style={{width: 35, height: 25}}/>
+                <span className='about__title' style={{color:"black"}}>&nbsp;Oracle</span>
+            </div>
+        </div>
+        <div className='about__box'>
+            <div className='about__box__inner'>
                 <Image className="about__image" src="/img/docker.png" alt="dockerimage" width={40} height={30} style={{width: 40, height: 30}}/>
                 <span className='about__title' style={{color:"#384c53"}}>&nbsp;Docker</span>
             </div>
@@ -45,12 +51,6 @@ const AboutBox = () => {
             <div className='about__box__inner'>
                 <Image className="about__image" src="/img/jenkins.png" alt="jenkinsimage" width={25} height={25} style={{width: 25, height: 25}}/>
                 <span className='about__title' style={{color:"black"}}>&nbsp;Jenkins</span>
-            </div>
-        </div>
-        <div className='about__box'>
-            <div className='about__box__inner'>
-                <Image className="about__image" src="/img/oracle.png" alt="oracleimage" width={35} height={25} style={{width: 35, height: 25}}/>
-                <span className='about__title' style={{color:"black"}}>&nbsp;Oracle</span>
             </div>
         </div>
         <div className='about__box'>
