@@ -108,7 +108,7 @@ const Menu =[
       deadline: "기간:2023.08~2023.10(8주)",
       members: "FRONTEND:1 BACKEND:4",
       title: "OTT서비스 아이디를 공유하는 웹사이트",
-      skills: "인기TOP10크롤링기능 파티기능"
+      skills: "인기TOP10크롤링기능 파티기능 결제기능"
     },
     features : [
       {
@@ -126,6 +126,14 @@ const Menu =[
                    "2️⃣ 계좌등록시 파티장권한등록.",
                    "3️⃣ 파티가입시 파티참가인원수정."],
         skills: "Mybatis,Interceptor"
+      },
+      {
+        image: "/img/oyespaypage.png",
+        title: "🔍 결제기능",
+        contents:["1️⃣ PortOneAPI를 통한 테스트 결제 구현.",
+                  "2️⃣ 결제 완료시 결제 로그이력 INSERT",
+                  "3️⃣ 이미 참여중인 파티 클릭시 메인페이지로 우회"],
+        skills: "PortOne간편결제API,Mybatis"
       }]
   },
   {
