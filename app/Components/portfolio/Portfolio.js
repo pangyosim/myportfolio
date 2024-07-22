@@ -117,11 +117,11 @@ const Portfolio = () => {
             {/* <p className="modal__close__text" onClick={closeModal}>X</p> */}
             <p className="modal__close__text"><i className="fa-solid fa-xmark" onClick={closeModal} style={{fontSize:"30px",position:"absolute"}}></i></p>
             <div className="modal__title">
-              <h1>{currentItem && currentItem.subtitle}</h1>
+              <Image src={currentItem && currentItem.subtitle} width={200} height={100} alt='logoimage'></Image>
               <h3>{currentItem && currentItem.subcontent}</h3>
             </div>
             <div className="modal__moreview">
-              <Button onClick={()=>{currentItem && window.open(`${currentItem.url}`)}}><i className="fa-regular fa-paper-plane"></i>&nbsp;사이트 바로가기</Button>
+              {currentItem && currentItem.url && <Button onClick={()=>{currentItem && window.open(`${currentItem.url}`)}}><i className="fa-regular fa-paper-plane"></i>&nbsp;사이트 바로가기</Button>}
               <Button onClick={()=>{currentItem && window.open(`${currentItem.github}`)}}><i className="fa-brands fa-github"></i>&nbsp;Github 바로가기</Button>
             </div>
             <div className="modal__main">
