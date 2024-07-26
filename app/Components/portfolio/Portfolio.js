@@ -132,7 +132,7 @@ const Portfolio = () => {
                 <p>{currentItem && currentItem.innercontent}</p>
                 <p className="modal__main__features"><i class="fa-solid fa-people-group"></i> TEAM</p>
                 <p>{currentItem && currentItem.main.members}</p>
-                <p className="modal__main__features">🧑🏻‍💻 WORKS</p>
+                <p className="modal__main__features">🧑🏻‍💻 MYROLE</p>
                 <p className="modal__main__skills">{currentItem && currentItem.main.skills}</p>
               </div>
             </div>
