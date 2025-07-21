@@ -30,11 +30,6 @@ const Sidebar = () => {
           </a>
         </li>
 
-        <li className='nav__item'>
-          <a href='#resume' className='nav__link'>
-          <i className="icon-graduation"></i>
-          </a>
-        </li>
 
         <li className='nav__item'>
           <a href='#work' className='nav__link'>
@@ -55,7 +50,7 @@ const Sidebar = () => {
     </nav>
 
     <div className='nav__footer'>
-      <span className='copyright'>&copy; 2021 - 2024.</span>
+      <span className='copyright'>&copy; 2021 - 2025.</span>
       <span className='copyright'>&copy; Simpango.</span>
     </div>
 

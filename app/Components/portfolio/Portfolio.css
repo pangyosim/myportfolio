@@ -30,7 +30,7 @@
     overflow: hidden;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
-    height: 37vh;
+    height: 320px;
 }
 
 .work__mask {
