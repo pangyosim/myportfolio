@@ -1,23 +1,27 @@
-import { Analytics } from '@vercel/analytics/react';
-import './globals.css'
-import { Inter } from 'next/font/google'
-import Script from 'next/script';
-const inter = Inter({ subsets: ['latin'] })
+import localFont from 'next/font/local';
+import './globals.css';
+
+const pretendard = localFont({
+  src: [
+    {
+      path: '../public/fonts/Pretendard.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-pretendard',
+  display: 'swap',
+});
+
+export const metadata = {
+  title: '심판교 포트폴리오',
+  description: 'AICON과 일독 프로젝트를 중심으로 소개하는 풀스택 개발자 포트폴리오',
+};
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-    <head>
-    <title>심판교 포트폴리오</title>
-    {/* <--SIMPLE LINE ICONS CDN--> */}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"></link>
-    <link rel="icon" href="img/mimoticon.png"></link>
-    </head>
-      <body>
-      {children}
-      <Analytics />
-      <script defer src="https://kit.fontawesome.com/34b8159489.js" crossOrigin="anonymous"></script>
-      </body>
+    <html lang="ko">
+      <body className={pretendard.variable}>{children}</body>
     </html>
-  )
+  );
 }
