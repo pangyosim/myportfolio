@@ -522,6 +522,7 @@ h2 {
 
 .journey-map-stage {
   --story-design-width: 1200;
+  --story-map-height: 1060px;
   --story-scale: min(1, calc((100vw - 32px) / 1px / var(--story-design-width)));
   --story-line-top: 130px;
   --story-title-gap: 64px;
@@ -529,7 +530,7 @@ h2 {
   width: 100%;
   max-width: 1200px;
   margin: calc(var(--story-title-gap) - (var(--story-line-top) * var(--story-scale))) auto 0;
-  height: calc(1060px * var(--story-scale));
+  height: calc(var(--story-map-height) * var(--story-scale));
   overflow: visible;
 }
 
@@ -537,7 +538,7 @@ h2 {
   position: relative;
   left: 50%;
   width: 1200px;
-  height: 1060px;
+  height: var(--story-map-height);
   transform: translateX(-50%) scale(var(--story-scale));
   transform-origin: top center;
   border-radius: 40px;
@@ -708,6 +709,7 @@ h2 {
   letter-spacing: -0.2px;
   color: #2b354b;
   word-break: keep-all;
+  white-space: pre-line;
   width: 100%;
   text-align: center;
   transform: translateX(var(--story-text-shift-x));
@@ -718,11 +720,11 @@ h2 {
 }
 
 .lane-middle {
-  top: calc(440px + var(--story-content-offset-y));
+  top: calc(480px + var(--story-content-offset-y));
 }
 
 .lane-bottom {
-  top: calc(802px + var(--story-content-offset-y));
+  top: calc(872px + var(--story-content-offset-y));
 }
 
 .journey-callout {

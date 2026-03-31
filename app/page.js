@@ -7,7 +7,7 @@ const storyMilestones = [
   {
     year: '2021.11',
     title: '멀티캠퍼스',
-    desc: '인공지능 자연어처리(NLP기반) 기업데이터분석 과정 수료',
+    desc: '인공지능 \n자연어처리(NLP기반) \n기업데이터분석 과정 수료',
     lane: 'top',
     left: '21.7%',
     badge: false,
@@ -15,7 +15,7 @@ const storyMilestones = [
   {
     year: '2022.11',
     title: '한국폴리텍대학교',
-    desc: 'Azure cloud 전문가 양성 과정 수료',
+    desc: 'Azure cloud \n전문가 양성 과정 수료',
     lane: 'top',
     left: '43.3%',
     badge: false,
@@ -117,11 +117,11 @@ const timelinePoints = [
   { x: 260, y: 130, icon: '/icons/story/start.png' },
   { x: 520, y: 130, icon: '/icons/story/school.png' },
   { x: 780, y: 130, icon: '/icons/story/company.png' },
-  { x: 320, y: 430, icon: '/icons/story/project.png' },
-  { x: 680, y: 430, icon: '/icons/story/school.png' },
-  { x: 330, y: 790, icon: '/icons/story/company.png' },
-  { x: 610, y: 790, icon: '/icons/story/handshake.png' },
-  { x: 890, y: 790, icon: '/icons/story/personal_project.png' },
+  { x: 320, y: 470, icon: '/icons/story/project.png' },
+  { x: 680, y: 470, icon: '/icons/story/school.png' },
+  { x: 330, y: 860, icon: '/icons/story/company.png' },
+  { x: 610, y: 860, icon: '/icons/story/handshake.png' },
+  { x: 890, y: 860, icon: '/icons/story/personal_project.png' },
 ];
 
 const landingIcons = [
@@ -190,7 +190,7 @@ const projects = [
     insightImage: '/img/ildoc/ildoc_insight.png',
     iconImage: '/img/ildoc/ildoc_icon.png',
     device: 'mobile',
-    summary: '구독 서비스를 통합 관리하는 모바일 앱',
+    summary: '구독 서비스 관리 어플',
     role: 'Flutter 앱 + NestJS 백엔드 동시 개발',
     stack: 'Flutter, Riverpod, NestJS, Drizzle ORM',
     flow:
@@ -230,7 +230,7 @@ const projects = [
     insightImage: '/img/prime/prime_insight.png',
     iconImage: '/img/prime/prime_icon.png',
     device: 'mobile',
-    summary: '재개발지역·부동산 데이터 기반 부동산 거래 서비스',
+    summary: '부동산 거래 서비스',
     role: '프론트/백엔드 협업 및 데이터 연동',
     stack: 'React, NestJS, FastAPI, MySQL, RBush, JSONStream, ST_Contains Query',
     flow:
@@ -250,7 +250,7 @@ const projects = [
     insightImage: '/img/semsem/semsem_insight.png',
     iconImage: '/img/semsem/semsem_icon.png',
     device: 'mobile',
-    summary: '부동산 계산기 서비스',
+    summary: '부동산 세금 계산기 서비스',
     role: '부동산 계산 로직 설계, Restful API 설계, 크롤링/배치 연계 기능 설계 및 안정화',
     stack: 'NestJS, TypeScript, MySQL, Batch Scheduler',
     flow:
@@ -265,12 +265,12 @@ const projects = [
   {
     id: 'kubernetes',
     category: '팀 프로젝트',
-    title: 'Kubernetes 배포 운영',
+    title: 'Kubernetes 프로젝트',
     image: '/img/kubernetes/kubernetes_main.png',
     insightImage: '/img/kubernetes/kubernetes_insight.png',
     iconImage: '/img/kubernetes/kubernets_icon.png',
     device: 'desktop',
-    summary: 'ACR-AKS 기반 컨테이너 배포 및 운영 구조 구축',
+    summary: 'AKS 기반 컨테이너 배포 및 운영 구조 구축',
     role: '이미지 관리 체계 설계, AKS 배포, 서비스 노출 및 상태 검증',
     stack: 'Azure Container Registry, AKS, Docker, Kubernetes, JMeter',
     flow:
@@ -576,8 +576,8 @@ export default function Page() {
 
       <section className="message-block" id="story-intro">
         <p>AI 트렌드를 리서치하며,</p>
-        <p>튜닝하여 나의 업무에 적용해보고</p>
-        <p>업무 효율을 높이려 노력합니다.</p>
+        <p>튜닝하여 업무에 적용해보고</p>
+        <p>효율을 높이려 노력합니다.</p>
       </section>
 
       <section className="section" id="story">
@@ -594,7 +594,7 @@ export default function Page() {
               <svg viewBox="0 0 1200 760" className="journey-track-line" aria-hidden="true">
                 <path
                   className="timeline-main-path"
-                  d="M80 130 H920 C1010 130 1060 200 1060 280 C1060 360 1010 430 920 430 H280 C190 430 140 510 140 610 C140 710 190 790 280 790 H1106"
+                  d="M80 130 H920 C1010 130 1060 210 1060 300 C1060 390 1010 470 920 470 H280 C190 470 140 560 140 665 C140 770 190 860 280 860 H1106"
                   fill="none"
                   stroke="#3d63b8"
                   strokeLinecap="round"
@@ -604,7 +604,7 @@ export default function Page() {
               <svg viewBox="0 0 1200 760" className="journey-track-points" aria-hidden="true">
                 <path
                   className="timeline-arrow-path"
-                  d="M1094 780 L1118 790 L1094 800 Z"
+                  d="M1094 850 L1118 860 L1094 870 Z"
                   fill="#3d63b8"
                   stroke="#3d63b8"
                   strokeLinejoin="round"
@@ -643,7 +643,17 @@ export default function Page() {
                 >
                   <strong className={m.badge ? 'year-badge' : 'year-plain'}>{m.year}</strong>
                   <h3>{m.title}</h3>
-                  <p>{m.desc}</p>
+                  <p>
+                    {m.desc
+                      .replace(/\\n/g, '\n')
+                      .split('\n')
+                      .map((line, idx, arr) => (
+                        <span key={`${m.year}-desc-${idx}`}>
+                          {line}
+                          {idx < arr.length - 1 ? <br /> : null}
+                        </span>
+                      ))}
+                  </p>
                 </article>
               ))}
 
