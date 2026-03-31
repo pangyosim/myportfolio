@@ -63,7 +63,7 @@ const storyMilestones = [
   {
     year: '2026.03',
     title: '개인 프로젝트',
-    desc: 'AI Agent기반 AICOON 서비스 개발',
+    desc: 'AI Agent기반 아이쿤 서비스 개발',
     lane: 'bottom',
     left: '74.1%',
     badge: false,
@@ -172,7 +172,7 @@ const projects = [
     device: 'desktop',
     summary: 'AI 에이전트 협업을 게임형 UI로 시각화한 개발 플랫폼',
     role: '웹/백엔드 구조 설계 및 실행 흐름 정리',
-    stack: 'Next.js, Spring Boot, TypeScript, Redis',
+    stack: 'Next.js, Spring Boot, Node.js, TypeScript, Redis',
     flow:
       '사용자가 에이전트를 선택하고 작업을 실행하면, 각 단계 상태가 화면에서 순차적으로 바뀌고 결과가 즉시 피드백되도록 전체 흐름을 설계했습니다. 기획-실행-검증이 한 화면에서 이어지게 구성해 의사결정 속도를 높였습니다.',
     reason:
@@ -211,8 +211,8 @@ const projects = [
     iconImage: '/img/hanjogak/hanjogak_icon.png',
     device: 'desktop',
     summary: 'STO 토큰증권 플랫폼',
-    role: '사용자/관리자/소개 API 설계 및 운영',
-    stack: 'NestJS, Drizzle ORM, MySQL',
+    role: '인증/인가 구조 설계 및 개발, 공모 상태 전환 자동화, 관리자 API 개발, 투자/거래 API 설계 및 개발',
+    stack: 'NestJS, Drizzle ORM, MySQL, FireBase Cloud Messaging, Cron',
     flow:
       '공모 등록부터 오픈, 마감, 결과 노출까지의 전체 사이클을 사용자 화면과 관리자 운영 화면 기준으로 분리해 설계했습니다. 운영자가 실시간으로 상태를 확인하고 제어할 수 있도록 API 흐름을 명확히 구성했습니다.',
     reason:
@@ -230,9 +230,9 @@ const projects = [
     insightImage: '/img/prime/prime_insight.png',
     iconImage: '/img/prime/prime_icon.png',
     device: 'mobile',
-    summary: '도시정비·부동산 데이터 기반 서비스',
+    summary: '재개발지역·부동산 데이터 기반 부동산 거래 서비스',
     role: '프론트/백엔드 협업 및 데이터 연동',
-    stack: 'React, NestJS, FastAPI, Elasticsearch',
+    stack: 'React, NestJS, FastAPI, MySQL, RBush, JSONStream, ST_Contains Query',
     flow:
       '대용량 공간 데이터를 수집하고 가공한 뒤, 조회 API를 통해 지도 화면에 필요한 범위만 전달하도록 구성했습니다. 검색-필터-지도 렌더링까지가 한 흐름으로 이어지게 설계했습니다.',
     reason:

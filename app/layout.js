@@ -16,6 +16,11 @@ const pretendard = localFont({
 export const metadata = {
   title: '심판교 포트폴리오',
   description: 'AICON과 일독 프로젝트를 중심으로 소개하는 풀스택 개발자 포트폴리오',
+  icons: {
+    icon: '/img/code.png',
+    shortcut: '/img/code.png',
+    apple: '/img/code.png',
+  },
 };
 
 export default function RootLayout({ children }) {
