@@ -23,7 +23,7 @@ const storyMilestones = [
   {
     year: '2022.06',
     title: '메타넷디지털',
-    desc: '클라우드 SA 엔지니어 퇴직(업직종전환)',
+    desc: '클라우드 SA 엔지니어 \n퇴직(업직종전환)',
     lane: 'top',
     left: '65%',
     badge: true,
@@ -31,7 +31,7 @@ const storyMilestones = [
   {
     year: '2024.07',
     title: '한국취업센터',
-    desc: '미래내일 일경험 프로젝트 과정 수료',
+    desc: '미래내일 일경험 \n프로젝트 과정 수료',
     lane: 'middle',
     left: '26.7%',
     badge: false,
@@ -39,7 +39,7 @@ const storyMilestones = [
   {
     year: '2024.02',
     title: 'KIT코리아아카데미',
-    desc: 'Spring기반 개발자 교육 과정 수료',
+    desc: 'Spring기반 개발자 \n교육 과정 수료',
     lane: 'middle',
     left: '56.7%',
     badge: false,
@@ -47,7 +47,7 @@ const storyMilestones = [
   {
     year: '2026.01',
     title: '리턴플러스',
-    desc: '기업부설연구소 백엔드 개발자 퇴직(회사 경영 악화)',
+    desc: '기업부설연구소 백엔드 개발자 \n퇴직(회사 경영 악화)',
     lane: 'bottom',
     left: '27.5%',
     badge: true,
@@ -55,7 +55,7 @@ const storyMilestones = [
   {
     year: '2026.02',
     title: 'GYOU',
-    desc: '구독관리서비스 일독(ILDOK) 외주 개발',
+    desc: '구독관리서비스 \n일독(ILDOK) 외주 개발',
     lane: 'bottom',
     left: '50.8%',
     badge: true,
@@ -63,7 +63,7 @@ const storyMilestones = [
   {
     year: '2026.03',
     title: '개인 프로젝트',
-    desc: 'AI Agent기반 아이쿤 서비스 개발',
+    desc: 'AI Agent기반 \n아이쿤 서비스 개발',
     lane: 'bottom',
     left: '74.1%',
     badge: false,
