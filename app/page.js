@@ -161,6 +161,17 @@ const landingIcons = [
   '/icons/landing/typescript.png',
 ];
 
+function getLandingIconIndex(col, row, total) {
+  // 열마다 다른 순열을 사용해 중복 체감을 줄입니다.
+  const setSize = total;
+  const cycle = Math.floor(row / setSize);
+  const pos = row % setSize;
+  const step = 5; // total(34)와 서로소
+  const colOffset = 7; // 열별 위상 이동
+  const cycleShift = 11; // 다음 루프 세트는 다른 시작점
+  return (pos * step + col * colOffset + cycle * cycleShift) % total;
+}
+
 const projects = [
   {
     id: 'aicoon',
@@ -191,16 +202,16 @@ const projects = [
     iconImage: '/img/ildoc/ildoc_icon.png',
     device: 'mobile',
     summary: '구독 서비스 관리 어플',
-    role: '서비스 전체 구조 설계 및 개발',
-    stack: 'Flutter, Riverpod, NestJS, Redis, FastAPI, NodeJS, Drizzle ORM',
+    role: 'NestJS 백엔드 구조 설계/개발, Redis(BullMQ) 결제 스케줄링, AI 추천 연동(RAG 성격의 후보 검색 파이프라인) 구현',
+    stack: 'Flutter, Riverpod, NestJS, BullMQ, Redis, Drizzle ORM, FastAPI, Gemini API',
     flow:
-      '사용자가 구독 서비스를 등록하면 결제 주기와 알림 스케줄이 자동으로 연결되고, 홈 화면에서 남은 기간과 비용 요약이 바로 보이도록 흐름을 구성했습니다. 등록-관리-알림이 끊기지 않게 모바일 중심으로 설계했습니다.',
+      '사용자가 구독 서비스를 등록하면 앱에서는 일정/요약을 보여주고, 백엔드에서는 결제 주기 기반 작업을 Redis(BullMQ) 큐에 지연 작업으로 등록해 자동 처리하도록 구성했습니다. AI 채팅에서는 사용자 입력과 기존 구독/캘린더 데이터를 합쳐 의도 분석(NLU) 후 추천 응답으로 이어지게 설계해 등록-관리-추천 흐름이 끊기지 않게 만들었습니다.',
     reason:
-      '구독 앱의 핵심은 데이터 정확성보다도 “계속 쓰게 만드는 단순한 흐름”이라고 봤습니다. 그래서 입력 단계 수를 줄이고, 조회 화면은 한 번의 스크롤에서 핵심 정보가 끝나도록 최소 구조로 설계했습니다.',
+      '실서비스에서 가장 큰 리스크는 “결제/정산 시점 누락”과 “추천 품질 불안정”이라고 봤습니다. 그래서 NestJS 모듈 구조를 결제/구독/채팅으로 분리하고, 결제는 큐 기반 비동기 처리와 재시도(backoff)로 안정성을 확보했습니다. 추천은 DB에서 후보를 먼저 검색해 AI에 주입하는 방식으로, 답변 일관성을 높였습니다.',
     features:
-      '정기결제 일정 관리, 카테고리별 구독 분류, 만료 임박 알림, 월간 비용 합산이 핵심 기능입니다. 앱 상태(Riverpod)와 API 응답 스키마를 동시에 정리해서 화면/백엔드 간 불일치를 줄였습니다.',
+      '핵심 기능은 정기결제 스케줄링/재처리(BullMQ + Redis), 구독 상태 변경 시 배치성 정합성 보정(Cron), 결제 작업의 중복 방지(jobId), Drizzle 트랜잭션 기반 결제 상태 업데이트, 그리고 AI 추천 시 후보군 검색 후 모델 응답을 결합하는 파이프라인입니다.',
     retrospect:
-      '모바일 서비스는 기능을 많이 넣는 것보다 사용자가 매일 반복하는 동선을 짧게 만드는 게 더 큰 가치라는 걸 체감했습니다. 이후 프로젝트에서도 단순하고 빠른 플로우를 먼저 만드는 방향으로 접근하고 있습니다.',
+      '이 프로젝트로 “모바일 앱은 화면, 품질은 백엔드에서 결정된다”는 걸 강하게 배웠습니다. 특히 Redis 큐 기반 처리와 NestJS 서비스 분리, AI 추천에 검색 RAG 기반 방식을 실제 운영 흐름에 녹여보면서, 기능 구현보다 운영 안정성과 응답 신뢰도를 먼저 설계하는 습관이 생겼습니다.',
   },
   {
     id: 'hanjogak',
@@ -606,7 +617,7 @@ export default function Page() {
                   <div className="hero-bg-card" key={`col-${col}-card-${row}`}>
                     <div className="hero-bg-slot">
                       <Image
-                        src={landingIcons[((row % heroLoopCount) + col * 3) % landingIcons.length]}
+                        src={landingIcons[getLandingIconIndex(col, row, landingIcons.length)]}
                         alt=""
                         width={180}
                         height={180}
