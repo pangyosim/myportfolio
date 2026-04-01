@@ -171,8 +171,8 @@ const projects = [
     iconImage: '/img/aicoon/aicoon_icon.png',
     device: 'desktop',
     summary: 'AI 에이전트 협업 시각화 플랫폼',
-    role: '웹/백엔드 구조 설계 및 개발',
-    stack: 'Next.js, Spring Boot, JPA, Node.js, TypeScript, Redis',
+    role: '서비스 전체 인프라/코드 구조 설계 및 개발, AI 에이전트 작업 흐름 설계 및 개발, 실시간 로그 스트리밍 설계 및 개발',
+    stack: 'Next.js, Spring Boot, JPA, SSE, Node.js, TypeScript, Redis, Skils.sh, OpenClaw, ClaudeCode',
     flow:
       '사용자가 에이전트를 선택하고 작업을 실행하면, 각 단계 상태가 화면에서 순차적으로 바뀌고 결과가 즉시 피드백되도록 전체 흐름을 설계했습니다. 기획-실행-검증이 한 화면에서 이어지게 구성해 의사결정 속도를 높였습니다.',
     reason:
@@ -231,7 +231,7 @@ const projects = [
     iconImage: '/img/prime/prime_icon.png',
     device: 'mobile',
     summary: '부동산 거래 서비스',
-    role: '프론트/백엔드 협업 및 데이터 연동',
+    role: '데이터 크롤링, 공간 데이터 최적화 구조 설계 및 개발, 지도 렌더링 최적화, 대용량 데이터베이스 구조 개선, 조회 API 설계 및 개발',
     stack: 'React, NestJS, FastAPI, MySQL, RBush, JSONStream, ST_Contains Query',
     flow:
       '대용량 공간 데이터를 수집하고 가공한 뒤, 조회 API를 통해 지도 화면에 필요한 범위만 전달하도록 구성했습니다. 검색-필터-지도 렌더링까지가 한 흐름으로 이어지게 설계했습니다.',
@@ -467,13 +467,21 @@ export default function Page() {
       document.body.classList.remove('modal-open');
       document.documentElement.classList.remove('modal-open-mobile');
       document.body.classList.remove('modal-open-mobile');
+      const lockedTop = document.body.style.top;
       document.body.style.position = '';
       document.body.style.top = '';
       document.body.style.left = '';
       document.body.style.right = '';
       document.body.style.width = '';
       if (isMobile) {
-        window.scrollTo(0, mobileLockScrollYRef.current);
+        const restoreY =
+          Number.isFinite(mobileLockScrollYRef.current) && mobileLockScrollYRef.current > 0
+            ? mobileLockScrollYRef.current
+            : Math.abs(parseInt(lockedTop || '0', 10)) || 0;
+        const prevScrollBehavior = document.documentElement.style.scrollBehavior;
+        document.documentElement.style.scrollBehavior = 'auto';
+        window.scrollTo(0, restoreY);
+        document.documentElement.style.scrollBehavior = prevScrollBehavior;
       }
     };
   }, [selectedProject]);

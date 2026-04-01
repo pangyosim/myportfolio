@@ -1188,8 +1188,8 @@ h2 {
 
 .project-modal-close {
   position: absolute;
-  right: 12px;
-  top: 10px;
+  right: 22px;
+  top: 18px;
   border: none;
   background: transparent;
   color: #284171;
@@ -1399,15 +1399,25 @@ h2 {
     border-radius: 0;
     border: none;
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(0, auto) minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, auto) minmax(0, 1fr);
     gap: 10px;
     padding: 16px 14px 12px;
     overflow: hidden;
   }
 
   .project-modal-close {
-    right: 10px;
-    top: 8px;
+    position: static;
+    justify-self: end;
+    align-self: center;
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 2px 0;
+    padding: 0;
+    font-size: 1.9rem;
+    line-height: 1;
   }
 
   .project-modal-media {
@@ -1423,6 +1433,34 @@ h2 {
     max-height: none;
     overflow: hidden;
     padding: 0 2px calc(20px + env(safe-area-inset-bottom));
+  }
+
+  .project-modal-head {
+    gap: 10px;
+    margin-bottom: 8px;
+    min-height: 64px;
+  }
+
+  .project-modal-avatar {
+    width: 56px;
+    height: 56px;
+  }
+
+  .project-modal-type {
+    font-size: 0.72rem;
+    margin-bottom: 0.12rem !important;
+  }
+
+  .project-modal-body h3 {
+    font-size: clamp(1.58rem, 4vw, 2.05rem);
+    margin-bottom: 0.18rem;
+    line-height: 1.06;
+  }
+
+  .project-modal-summary {
+    font-size: 0.84rem;
+    margin-bottom: 0 !important;
+    line-height: 1.3;
   }
 
   .project-modal-scroll {
@@ -1559,6 +1597,34 @@ h2 {
     padding: 0 2px calc(12px + env(safe-area-inset-bottom));
     overflow: hidden;
     max-height: none;
+  }
+
+  .project-modal-head {
+    gap: 16px;
+    margin-bottom: 6px;
+    min-height: 56px;
+  }
+
+  .project-modal-avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .project-modal-type {
+    font-size: 0.68rem;
+    margin-bottom: 0.08rem !important;
+  }
+
+  .project-modal-body h3 {
+    font-size: clamp(1.42rem, 4.5vw, 1.88rem);
+    margin-bottom: 0.32rem;
+    line-height: 1.03;
+  }
+
+  .project-modal-summary {
+    font-size: 0.8rem;
+    margin-bottom: 0 !important;
+    line-height: 1.24;
   }
 
   .project-modal-scroll {
