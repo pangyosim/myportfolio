@@ -334,10 +334,19 @@ export default function Page() {
   const [tabPinned, setTabPinned] = useState(false);
   const [activeSection, setActiveSection] = useState('story');
   const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalCollapsed, setIsModalCollapsed] = useState(false);
+  const [modalScrollProgress, setModalScrollProgress] = useState(0);
+  const [modalScrollThumbSize, setModalScrollThumbSize] = useState(24);
+  const [modalHasScrollableContent, setModalHasScrollableContent] = useState(false);
   const heroLoopCount = landingIcons.length;
   const heroCardCols = 5;
   const navLockRef = useRef(null);
   const mobileLockScrollYRef = useRef(0);
+  const modalScrollRef = useRef(null);
+  const modalLastScrollTopRef = useRef(0);
+  const modalTopExpandLockRef = useRef(false);
+  const modalRearmPendingRef = useRef(false);
+  const modalTransitionLockUntilRef = useRef(0);
   const tabBarHeight = 45;
   const sectionTopGap = 18;
 
@@ -438,6 +447,14 @@ export default function Page() {
 
   useEffect(() => {
     if (!selectedProject) {
+      setIsModalCollapsed(false);
+      setModalScrollProgress(0);
+      setModalScrollThumbSize(24);
+      setModalHasScrollableContent(false);
+      modalLastScrollTopRef.current = 0;
+      modalTopExpandLockRef.current = false;
+      modalRearmPendingRef.current = false;
+      modalTransitionLockUntilRef.current = 0;
       return;
     }
     document.documentElement.classList.add('modal-open');
@@ -485,6 +502,98 @@ export default function Page() {
       }
     };
   }, [selectedProject]);
+
+  const updateModalScrollMetrics = (el) => {
+    if (!el) {
+      return;
+    }
+    const scrollTop = Math.max(0, el.scrollTop);
+    const { scrollHeight, clientHeight } = el;
+    const maxScroll = Math.max(0, scrollHeight - clientHeight);
+    const progress = maxScroll > 0 ? Math.min(1, Math.max(0, scrollTop / maxScroll)) : 0;
+    const ratio = scrollHeight > 0 ? clientHeight / scrollHeight : 1;
+    const thumbSize = Math.min(88, Math.max(12, ratio * 100));
+    setModalScrollProgress(progress);
+    setModalScrollThumbSize(thumbSize);
+    setModalHasScrollableContent(maxScroll > 0.5);
+  };
+
+  useEffect(() => {
+    if (!selectedProject) {
+      return;
+    }
+    const tick = () => updateModalScrollMetrics(modalScrollRef.current);
+    tick();
+    const timer = window.setTimeout(tick, 40);
+    window.addEventListener('resize', tick);
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener('resize', tick);
+    };
+  }, [selectedProject, isModalCollapsed]);
+
+  const handleProjectModalScroll = (event) => {
+    if (!selectedProject || typeof window === 'undefined') {
+      return;
+    }
+    const scrollTop = Math.max(0, event.currentTarget.scrollTop);
+    const prevTop = modalLastScrollTopRef.current;
+    const direction = scrollTop > prevTop ? 'down' : scrollTop < prevTop ? 'up' : 'none';
+    modalLastScrollTopRef.current = scrollTop;
+    updateModalScrollMetrics(event.currentTarget);
+
+    if (!window.matchMedia('(max-width: 860px)').matches) {
+      if (isModalCollapsed) {
+        setIsModalCollapsed(false);
+      }
+      modalTopExpandLockRef.current = false;
+      modalRearmPendingRef.current = false;
+      modalTransitionLockUntilRef.current = 0;
+      return;
+    }
+
+    const OPEN_AT = 36;
+    const COLLAPSE_AT = 72;
+    const REARM_AT = 120;
+    const now = Date.now();
+
+    if (now < modalTransitionLockUntilRef.current) {
+      return;
+    }
+
+    setIsModalCollapsed((prev) => {
+      if (scrollTop <= OPEN_AT) {
+        modalTopExpandLockRef.current = true;
+        modalRearmPendingRef.current = true;
+        if (prev) {
+          modalTransitionLockUntilRef.current = Date.now() + 380;
+        }
+        return false;
+      }
+
+      if (modalTopExpandLockRef.current || modalRearmPendingRef.current) {
+        if (direction === 'down' && scrollTop > REARM_AT) {
+          modalTopExpandLockRef.current = false;
+          modalRearmPendingRef.current = false;
+          return false;
+        } else {
+          return false;
+        }
+      }
+
+      if (prev) {
+        return scrollTop > OPEN_AT;
+      }
+
+      const nextCollapsed = direction === 'down' && scrollTop > COLLAPSE_AT;
+      if (nextCollapsed !== prev) {
+        modalTransitionLockUntilRef.current = Date.now() + 380;
+      }
+      return nextCollapsed;
+    });
+  };
+
+  const modalScrollThumbTop = modalScrollProgress * (100 - modalScrollThumbSize);
 
   return (
     <main className="page">
@@ -729,7 +838,10 @@ export default function Page() {
 
       {selectedProject && (
         <div className="project-modal-backdrop" onClick={() => setSelectedProject(null)} role="presentation">
-          <article className="project-modal" onClick={(e) => e.stopPropagation()}>
+          <article
+            className={`project-modal ${isModalCollapsed ? 'project-modal--collapsed-mobile' : ''}`}
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               type="button"
               className="project-modal-close"
@@ -739,13 +851,15 @@ export default function Page() {
               ×
             </button>
             <div className="project-modal-media">
-              <Image
-                src={selectedProject.insightImage || selectedProject.image}
-                alt={`${selectedProject.title} 상세 이미지`}
-                width={1200}
-                height={760}
-                className="project-modal-image"
-              />
+              <div className="project-modal-image-frame">
+                <Image
+                  src={selectedProject.insightImage || selectedProject.image}
+                  alt={`${selectedProject.title} 상세 이미지`}
+                  width={1200}
+                  height={760}
+                  className="project-modal-image"
+                />
+              </div>
             </div>
             <div className="project-modal-body">
               <div className="project-modal-head">
@@ -764,30 +878,43 @@ export default function Page() {
                   <p className="project-modal-summary">{selectedProject.summary}</p>
                 </div>
               </div>
-              <div className="project-modal-scroll">
-                <div className="project-modal-section">
-                  <h4>서비스 전체 흐름</h4>
-                  <p>{selectedProject.flow}</p>
+              <div className="project-modal-content-wrap">
+                <div className="project-modal-scroll" onScroll={handleProjectModalScroll} ref={modalScrollRef}>
+                  <div className="project-modal-section">
+                    <h4>서비스 전체 흐름</h4>
+                    <p>{selectedProject.flow}</p>
+                  </div>
+                  <div className="project-modal-section">
+                    <h4>이런 구조/코드를 생각한 이유</h4>
+                    <p>{selectedProject.reason}</p>
+                  </div>
+                  <div className="project-modal-section">
+                    <h4>기능 별 특징</h4>
+                    <p>{selectedProject.features}</p>
+                  </div>
+                  <div className="project-modal-section">
+                    <h4>느낀점</h4>
+                    <p>{selectedProject.retrospect}</p>
+                  </div>
+                  <div className="project-modal-section">
+                    <h4>내 역할</h4>
+                    <p>{selectedProject.role}</p>
+                  </div>
+                  <div className="project-modal-section">
+                    <h4>스택</h4>
+                    <p>{selectedProject.stack}</p>
+                  </div>
                 </div>
-                <div className="project-modal-section">
-                  <h4>이런 구조/코드를 생각한 이유</h4>
-                  <p>{selectedProject.reason}</p>
-                </div>
-                <div className="project-modal-section">
-                  <h4>기능 별 특징</h4>
-                  <p>{selectedProject.features}</p>
-                </div>
-                <div className="project-modal-section">
-                  <h4>느낀점</h4>
-                  <p>{selectedProject.retrospect}</p>
-                </div>
-                <div className="project-modal-section">
-                  <h4>내 역할</h4>
-                  <p>{selectedProject.role}</p>
-                </div>
-                <div className="project-modal-section">
-                  <h4>스택</h4>
-                  <p>{selectedProject.stack}</p>
+                <div
+                  className={`project-modal-scroll-indicator ${modalHasScrollableContent ? '' : 'is-static'}`}
+                  aria-hidden="true"
+                >
+                  <span className="project-modal-scroll-track">
+                    <span
+                      className="project-modal-scroll-thumb"
+                      style={{ top: `${modalScrollThumbTop}%`, height: `${modalScrollThumbSize}%` }}
+                    />
+                  </span>
                 </div>
               </div>
             </div>
