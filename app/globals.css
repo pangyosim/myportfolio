@@ -1186,6 +1186,10 @@ h2 {
   overflow: hidden;
 }
 
+.project-modal-topbar {
+  display: contents;
+}
+
 .project-modal-close {
   position: absolute;
   right: 22px;
@@ -1196,6 +1200,11 @@ h2 {
   font-size: 1.8rem;
   line-height: 1;
   cursor: pointer;
+  z-index: 7;
+}
+
+.project-modal-mobile-head {
+  display: none;
 }
 
 .project-modal-media {
@@ -1483,6 +1492,15 @@ h2 {
     overflow: hidden;
   }
 
+  .project-modal-topbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+    min-height: 52px;
+    height: 52px;
+  }
+
   .project-modal-close {
     position: static;
     justify-self: end;
@@ -1496,6 +1514,64 @@ h2 {
     padding: 0;
     font-size: 1.95rem;
     line-height: 1;
+  }
+
+  .project-modal-mobile-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition: max-height 240ms ease, opacity 220ms ease, transform 240ms ease;
+  }
+
+  .project-modal-mobile-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    border: 1px solid rgba(60, 88, 149, 0.22);
+    background: #ffffff;
+    overflow: hidden;
+    flex: 0 0 auto;
+  }
+
+  .project-modal-mobile-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .project-modal-mobile-copy {
+    min-width: 0;
+  }
+
+  .project-modal-mobile-type {
+    font-size: 0.68rem;
+    line-height: 1.2;
+    color: #4866a0;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .project-modal-mobile-copy h4 {
+    font-size: 1.05rem;
+    line-height: 1.1;
+    color: #17243a;
+    margin: 1px 0 2px;
+    letter-spacing: -0.3px;
+  }
+
+  .project-modal-mobile-summary {
+    font-size: 0.73rem;
+    line-height: 1.22;
+    color: #334463;
+    margin: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   .project-modal-media {
@@ -1550,26 +1626,25 @@ h2 {
     gap: 6px;
   }
 
-  .project-modal--collapsed-mobile .project-modal-media {
-    max-height: 0;
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
-  }
-
-  .project-modal--collapsed-mobile .project-modal-image {
-    max-height: 0;
-    opacity: 0;
-  }
-
   .project-modal--collapsed-mobile .project-modal-head {
-    transform: translateY(0);
-    margin-bottom: 4px;
-    min-height: 56px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-bottom: 0;
+    min-height: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
   }
 
   .project-modal--collapsed-mobile .project-modal-body {
     padding-top: 4px;
+  }
+
+  .project-modal--collapsed-mobile .project-modal-mobile-head {
+    max-height: 76px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 
   .record-viewport {
@@ -1698,6 +1773,11 @@ h2 {
     max-height: none;
   }
 
+  .project-modal-topbar {
+    min-height: 50px;
+    height: 50px;
+  }
+
   .project-modal-body {
     padding: 0 6px calc(12px + env(safe-area-inset-bottom)) 2px;
     overflow: hidden;
@@ -1730,6 +1810,14 @@ h2 {
     font-size: 0.8rem;
     margin-bottom: 0 !important;
     line-height: 1.24;
+  }
+
+  .project-modal-mobile-copy h4 {
+    font-size: 0.99rem;
+  }
+
+  .project-modal-mobile-summary {
+    font-size: 0.68rem;
   }
 
   .project-modal-scroll {

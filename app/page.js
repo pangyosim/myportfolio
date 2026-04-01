@@ -354,10 +354,6 @@ export default function Page() {
   const navLockRef = useRef(null);
   const mobileLockScrollYRef = useRef(0);
   const modalScrollRef = useRef(null);
-  const modalLastScrollTopRef = useRef(0);
-  const modalTopExpandLockRef = useRef(false);
-  const modalRearmPendingRef = useRef(false);
-  const modalTransitionLockUntilRef = useRef(0);
   const tabBarHeight = 45;
   const sectionTopGap = 18;
 
@@ -462,10 +458,6 @@ export default function Page() {
       setModalScrollProgress(0);
       setModalScrollThumbSize(24);
       setModalHasScrollableContent(false);
-      modalLastScrollTopRef.current = 0;
-      modalTopExpandLockRef.current = false;
-      modalRearmPendingRef.current = false;
-      modalTransitionLockUntilRef.current = 0;
       return;
     }
     document.documentElement.classList.add('modal-open');
@@ -548,60 +540,17 @@ export default function Page() {
       return;
     }
     const scrollTop = Math.max(0, event.currentTarget.scrollTop);
-    const prevTop = modalLastScrollTopRef.current;
-    const direction = scrollTop > prevTop ? 'down' : scrollTop < prevTop ? 'up' : 'none';
-    modalLastScrollTopRef.current = scrollTop;
     updateModalScrollMetrics(event.currentTarget);
 
     if (!window.matchMedia('(max-width: 860px)').matches) {
       if (isModalCollapsed) {
         setIsModalCollapsed(false);
       }
-      modalTopExpandLockRef.current = false;
-      modalRearmPendingRef.current = false;
-      modalTransitionLockUntilRef.current = 0;
       return;
     }
 
-    const OPEN_AT = 36;
-    const COLLAPSE_AT = 72;
-    const REARM_AT = 120;
-    const now = Date.now();
-
-    if (now < modalTransitionLockUntilRef.current) {
-      return;
-    }
-
-    setIsModalCollapsed((prev) => {
-      if (scrollTop <= OPEN_AT) {
-        modalTopExpandLockRef.current = true;
-        modalRearmPendingRef.current = true;
-        if (prev) {
-          modalTransitionLockUntilRef.current = Date.now() + 380;
-        }
-        return false;
-      }
-
-      if (modalTopExpandLockRef.current || modalRearmPendingRef.current) {
-        if (direction === 'down' && scrollTop > REARM_AT) {
-          modalTopExpandLockRef.current = false;
-          modalRearmPendingRef.current = false;
-          return false;
-        } else {
-          return false;
-        }
-      }
-
-      if (prev) {
-        return scrollTop > OPEN_AT;
-      }
-
-      const nextCollapsed = direction === 'down' && scrollTop > COLLAPSE_AT;
-      if (nextCollapsed !== prev) {
-        modalTransitionLockUntilRef.current = Date.now() + 380;
-      }
-      return nextCollapsed;
-    });
+    const AT_TOP_EPSILON = 4;
+    setIsModalCollapsed(scrollTop > AT_TOP_EPSILON);
   };
 
   const modalScrollThumbTop = modalScrollProgress * (100 - modalScrollThumbSize);
@@ -853,14 +802,32 @@ export default function Page() {
             className={`project-modal ${isModalCollapsed ? 'project-modal--collapsed-mobile' : ''}`}
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              type="button"
-              className="project-modal-close"
-              onClick={() => setSelectedProject(null)}
-              aria-label="모달 닫기"
-            >
-              ×
-            </button>
+            <div className="project-modal-topbar">
+              <div className="project-modal-mobile-head" aria-hidden={!isModalCollapsed}>
+                <div className="project-modal-mobile-avatar">
+                  <Image
+                    src={selectedProject.iconImage || selectedProject.image}
+                    alt=""
+                    width={38}
+                    height={38}
+                    className="project-modal-mobile-icon"
+                  />
+                </div>
+                <div className="project-modal-mobile-copy">
+                  <p className="project-modal-mobile-type">{selectedProject.category}</p>
+                  <h4>{selectedProject.title}</h4>
+                  <p className="project-modal-mobile-summary">{selectedProject.summary}</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                className="project-modal-close"
+                onClick={() => setSelectedProject(null)}
+                aria-label="모달 닫기"
+              >
+                ×
+              </button>
+            </div>
             <div className="project-modal-media">
               <div className="project-modal-image-frame">
                 <Image
