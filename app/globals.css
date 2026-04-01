@@ -730,7 +730,7 @@ h2 {
 .journey-callout {
   position: absolute;
   right: 3.4%;
-  bottom: 170px;
+  bottom: 120px;
   border-radius: 18px;
   background: #355db8;
   color: #fff;
@@ -1467,6 +1467,27 @@ h2 {
   .journey-item p {
     font-size: clamp(16px, 2.1vw, 21px);
   }
+
+  .lane-middle {
+    top: calc(520px + var(--story-content-offset-y));
+  }
+
+  .lane-bottom {
+    top: calc(930px + var(--story-content-offset-y));
+  }
+
+  .journey-callout {
+    bottom: 130px;
+    padding: 18px 20px;
+    font-size: clamp(18px, 2.6vw, 26px);
+    border-radius: 20px;
+  }
+
+  .journey-callout::after {
+    right: 24px;
+    bottom: -16px;
+    border-width: 16px 16px 0 0;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -1578,11 +1599,24 @@ h2 {
   }
 
   .lane-middle {
-    top: calc(440px + var(--story-content-offset-y));
+    top: calc(470px + var(--story-content-offset-y));
   }
 
   .lane-bottom {
-    top: calc(802px + var(--story-content-offset-y));
+    top: calc(870px + var(--story-content-offset-y));
+  }
+
+  .journey-callout {
+    bottom: 88px;
+    padding: 16px 18px;
+    font-size: clamp(17px, 4.2vw, 23px);
+    border-radius: 18px;
+  }
+
+  .journey-callout::after {
+    right: 20px;
+    bottom: -14px;
+    border-width: 14px 14px 0 0;
   }
 
   .deco-mid {

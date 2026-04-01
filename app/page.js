@@ -170,9 +170,9 @@ const projects = [
     insightImage: '/img/aicoon/aicoon_insight.png',
     iconImage: '/img/aicoon/aicoon_icon.png',
     device: 'desktop',
-    summary: 'AI 에이전트 협업을 게임형 UI로 시각화한 개발 플랫폼',
-    role: '웹/백엔드 구조 설계 및 실행 흐름 정리',
-    stack: 'Next.js, Spring Boot, Node.js, TypeScript, Redis',
+    summary: 'AI 에이전트 협업 시각화 플랫폼',
+    role: '웹/백엔드 구조 설계 및 개발',
+    stack: 'Next.js, Spring Boot, JPA, Node.js, TypeScript, Redis',
     flow:
       '사용자가 에이전트를 선택하고 작업을 실행하면, 각 단계 상태가 화면에서 순차적으로 바뀌고 결과가 즉시 피드백되도록 전체 흐름을 설계했습니다. 기획-실행-검증이 한 화면에서 이어지게 구성해 의사결정 속도를 높였습니다.',
     reason:
@@ -180,7 +180,7 @@ const projects = [
     features:
       '주요 기능은 에이전트 실행 상태 추적, 단계별 로그 확인, 실패 지점 재시도, 실행 결과 비교입니다. 특히 한 번의 실행에서 여러 작업이 섞일 때도 추적이 가능하도록 식별 키와 타임라인 기준을 분리해 구현했습니다.',
     retrospect:
-      '이 프로젝트를 하며 AI 기능 자체보다 실행 흐름을 명확히 보여주는 설계가 더 중요하다는 걸 배웠습니다. 이후에는 모델 성능과 UX를 동시에 다루는 관점으로 구조를 먼저 잡고 구현하는 습관이 생겼습니다.',
+      '이 프로젝트를 하며 AI 기능 자체보다 실행 흐름을 명확히 보여주는 설계가 더 중요하다는 걸 배웠습니다. 이후에는 모델 성능과 UX를 동시에 다루는 관점으로 구조를 먼저 잡고 구현해야겠다고 느꼈습니다.',
   },
   {
     id: 'ildoc',
@@ -191,8 +191,8 @@ const projects = [
     iconImage: '/img/ildoc/ildoc_icon.png',
     device: 'mobile',
     summary: '구독 서비스 관리 어플',
-    role: 'Flutter 앱 + NestJS 백엔드 동시 개발',
-    stack: 'Flutter, Riverpod, NestJS, Drizzle ORM',
+    role: '서비스 전체 구조 설계 및 개발',
+    stack: 'Flutter, Riverpod, NestJS, Redis, FastAPI, NodeJS, Drizzle ORM',
     flow:
       '사용자가 구독 서비스를 등록하면 결제 주기와 알림 스케줄이 자동으로 연결되고, 홈 화면에서 남은 기간과 비용 요약이 바로 보이도록 흐름을 구성했습니다. 등록-관리-알림이 끊기지 않게 모바일 중심으로 설계했습니다.',
     reason:
