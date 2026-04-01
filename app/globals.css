@@ -1311,7 +1311,7 @@ h2 {
   gap: 14px;
   margin-bottom: 14px;
   min-height: 86px;
-  transition: transform 260ms ease, margin-bottom 220ms ease, min-height 220ms ease;
+  transition: opacity 220ms ease, margin-bottom 220ms ease, min-height 220ms ease;
 }
 
 .project-modal-avatar {
