@@ -1497,8 +1497,8 @@ h2 {
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
     gap: 8px;
-    min-height: 52px;
-    height: 52px;
+    min-height: 48px;
+    height: 48px;
   }
 
   .project-modal-topbar > * {
@@ -1526,12 +1526,10 @@ h2 {
     align-items: center;
     align-self: center;
     gap: 8px;
-    max-height: 0;
     opacity: 0;
-    overflow: hidden;
-    transform: translateY(-6px);
+    visibility: hidden;
     pointer-events: none;
-    transition: max-height 240ms ease, opacity 220ms ease, transform 240ms ease;
+    transition: opacity 220ms ease, visibility 220ms ease;
   }
 
   .project-modal-mobile-avatar {
@@ -1635,10 +1633,10 @@ h2 {
   .project-modal--collapsed-mobile .project-modal-head {
     max-height: 0;
     opacity: 0;
+    visibility: hidden;
     overflow: hidden;
     margin-bottom: 0;
     min-height: 0;
-    transform: translateY(-8px);
     pointer-events: none;
   }
 
@@ -1647,9 +1645,8 @@ h2 {
   }
 
   .project-modal--collapsed-mobile .project-modal-mobile-head {
-    max-height: 76px;
     opacity: 1;
-    transform: translateY(0);
+    visibility: visible;
     pointer-events: auto;
   }
 
@@ -1780,8 +1777,8 @@ h2 {
   }
 
   .project-modal-topbar {
-    min-height: 50px;
-    height: 50px;
+    min-height: 46px;
+    height: 46px;
   }
 
   .project-modal-close {
