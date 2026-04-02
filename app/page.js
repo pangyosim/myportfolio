@@ -162,14 +162,11 @@ const landingIcons = [
 ];
 
 function getLandingIconIndex(col, row, total) {
-  // 열마다 다른 순열을 사용해 중복 체감을 줄입니다.
-  const setSize = total;
-  const cycle = Math.floor(row / setSize);
-  const pos = row % setSize;
-  const step = 5; // total(34)와 서로소
-  const colOffset = 7; // 열별 위상 이동
-  const cycleShift = 11; // 다음 루프 세트는 다른 시작점
-  return (pos * step + col * colOffset + cycle * cycleShift) % total;
+  // 열별 고정 순열을 사용하고, 동일 순서를 반복해 루프 경계에서도 이미지가 바뀌지 않게 유지합니다.
+  const posInSet = row % total;
+  const step = 5; // total(34)와 서로소라 한 사이클에서 중복 없이 순회
+  const colOffset = 7; // 열마다 시작 위상을 달리해 같은 행에서 중복을 줄임
+  return (posInSet * step + col * colOffset) % total;
 }
 
 const projects = [
