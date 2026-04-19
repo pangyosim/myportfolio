@@ -21,7 +21,7 @@ const storyMilestones = [
     badge: false,
   },
   {
-    year: '2023.06',
+    year: '2023.08',
     title: '메타넷디지털',
     desc: '클라우드 SA 엔지니어 \n퇴직(업직종전환)',
     lane: 'top',
