@@ -70,10 +70,18 @@ const storyMilestones = [
   },
   {
     year: '2026.04',
+    title: '대한안전보건교육원',
+    desc: '화상회의 플랫폼\nmeeteem 개발',
+    lane: 'bottom',
+    left: '75%',
+    badge: true,
+  },
+  {
+    year: '2026.04',
     title: '개인 프로젝트',
     desc: '감정 기록기반\n유튜브 플레이리스트 추천\n무드 어플 개발',
     lane: 'bottom',
-    left: '74.1%',
+    left: '57%',
     badge: false,
   },
   {
@@ -81,7 +89,7 @@ const storyMilestones = [
     title: '개인 프로젝트',
     desc: 'IOS 잠금화면 캘린더\n위캘 어플 개발',
     lane: 'bottom',
-    left: '50.8%',
+    left: '39.5%',
     badge: false,
   },
   {
@@ -89,8 +97,8 @@ const storyMilestones = [
     title: '개인 프로젝트',
     desc: 'AI기반 갈등 해결\n너굴재판 어플 개발',
     lane: 'bottom',
-    left: '27.5%',
-    badge: true,
+    left: '22%',
+    badge: false,
   },
 ];
 
@@ -146,9 +154,10 @@ const timelinePoints = [
   { x: 300, y: 730, icon: '/icons/story/company.png' },
   { x: 570, y: 730, icon: '/icons/story/ildok_icon.png' },
   { x: 840, y: 730, icon: '/icons/story/personal_project.png' },
-  { x: 330, y: 1030, icon: '/icons/story/nuguljaepan_icon.png' },
-  { x: 610, y: 1030, icon: '/icons/story/wecal_icon.png' },
-  { x: 890, y: 1030, icon: '/icons/story/mood_icon.png' },
+  { x: 264, y: 1030, icon: '/icons/story/nuguljaepan_icon.png' },
+  { x: 474, y: 1030, icon: '/icons/story/wecal_icon.png' },
+  { x: 684, y: 1030, icon: '/icons/story/mood_icon.png' },
+  { x: 900, y: 1030, icon: '/icons/story/meeteem_icon.png' },
 ];
 
 const landingIcons = [
@@ -210,7 +219,7 @@ const projects = [
     role:
       'Flutter 앱과 Spring Boot 백엔드 전반을 직접 설계하고 개발했습니다.\n\nFlutter 앱에서는 전체 앱 구조 설계, 소셜 로그인, 토큰 저장 및 자동 갱신, 커플 연결, 사건 등록, 진술 작성, 투표, 댓글, 판결, 항소 화면과 기능을 구현했습니다. 또한 WebSocket 기반 실시간 사건 목록 동기화, Firebase 알림, 로컬 알림 처리, 공통 네트워크 계층과 환경 설정을 담당했습니다.\n\n백엔드에서는 Spring Boot 기반 서버 구조 설계, JWT 인증/인가, 소셜 로그인 연동, 커플 초대코드/매칭 플로우, 사건/입장/투표/판결/항소 API, WebSocket 실시간 이벤트, OpenAI 기반 판결 생성 로직, S3 이미지 업로드, FCM 알림 API, 약관/문의/신고 기능, PostgreSQL/Flyway 기반 DB 마이그레이션을 구현했습니다.\n\n프론트엔드와 백엔드를 함께 개발하면서 커플 연결 → 사건 생성 → 입장 제출 → 투표 → AI 판결 → 항소 → 최종 판결까지 이어지는 전체 재판 흐름을 하나의 서비스 구조로 설계했습니다.',
     stack:
-      'Frontend\nFlutter, Dart, REST API, WebSocket, Firebase Cloud Messaging, flutter_local_notifications, flutter_secure_storage, shared_preferences, Kakao Login, Google Sign-In, Sign in with Apple, Lottie\n\nBackend\nJava, Spring Boot, Spring Security, JWT, JPA/Hibernate, PostgreSQL, Flyway, WebSocket/STOMP, AWS S3, Firebase FCM, OpenAI API, REST API',
+      'Flutter\nFlutter, Dart, REST API, WebSocket, Firebase Cloud Messaging, flutter_local_notifications, flutter_secure_storage, shared_preferences, Kakao Login, Google Sign-In, Sign in with Apple, Lottie\n\nBackend\nJava, Spring Boot, Spring Security, JWT, JPA/Hibernate, PostgreSQL, Flyway, WebSocket/STOMP, AWS S3, Firebase FCM, OpenAI API, REST API',
     flow:
       '사용자는 Kakao, Google, Apple 소셜 로그인으로 가입하고, 닉네임/성별 등 기본 프로필을 설정한 뒤 커플 초대코드로 상대방과 연결됩니다. 이후 커플 중 한 명이 갈등 상황을 사건으로 등록하면 상대방이 진술을 추가하고, 사건을 공개해 다른 사용자들의 투표와 댓글을 받을 수 있도록 구성했습니다.\n\n재판이 시작되면 설정된 투표 시간 동안 배심원 투표가 진행되고, 투표 종료 후 AI가 양측 입장과 투표 결과를 바탕으로 판결, 책임 비율, 배상 제안, 조언, 약속, 추천 선물을 생성합니다. 사건 상태 변화는 REST API와 WebSocket을 함께 사용해 홈 화면과 사건 상세 화면에 실시간으로 반영되도록 구현했습니다.\n\n또한 Firebase Cloud Messaging과 로컬 알림을 적용해 사건 진행, 댓글, 판결 등 주요 알림을 앱 사용 중이거나 백그라운드 상태일 때도 확인할 수 있도록 구성했습니다.',
     reason:
@@ -254,7 +263,7 @@ const projects = [
     role:
       'Flutter 앱과 Spring Boot 백엔드 전반을 직접 설계하고 개발했습니다.\n앱에서는 화면 구조, Riverpod 상태 관리, 감정 기록/추천/캘린더/구독 화면, 소셜 로그인, API 통신, 인증 인터셉터, Analytics 로깅을 구현했습니다.\n\n백엔드에서는 JWT 인증, 감정 분석 및 플레이리스트 추천 파이프라인, YouTube 검증 로직, PayApp 및 인앱결제 검증, 무료 이용권 관리, 스케줄러, PostgreSQL/Flyway 기반 데이터 모델링을 담당했습니다.',
     stack:
-      'Frontend\nFlutter, Dart, Riverpod, Dio, GoRouter, Flutter Secure Storage, Firebase Analytics, Kakao Login, Google Sign-In, Apple Sign-In, In-App Purchase, TableCalendar, Lottie\n\nBackend\nJava 17, Spring Boot, Spring Security, Spring Data JPA, PostgreSQL, Flyway, JWT, OpenAI Responses API, YouTube Data API, PayApp, Apple StoreKit API, Google Android Publisher API, Docker',
+      'Flutter\nFlutter, Dart, Riverpod, Dio, GoRouter, Flutter Secure Storage, Firebase Analytics, Kakao Login, Google Sign-In, Apple Sign-In, In-App Purchase, TableCalendar, Lottie\n\nBackend\nJava 17, Spring Boot, Spring Security, Spring Data JPA, PostgreSQL, Flyway, JWT, OpenAI Responses API, YouTube Data API, PayApp, Apple StoreKit API, Google Android Publisher API, Docker',
     flow:
       '사용자가 Kakao, Google, Apple 소셜 로그인으로 앱에 진입하면 Flutter 앱에서 Riverpod 상태를 기준으로 홈, 감정 기록, 캘린더, 구독 화면이 동기화되도록 구성했습니다.\n사용자가 감정을 입력하면 Spring Boot API에서 감정 분석, 위로 응답, YouTube 플레이리스트 추천을 처리하고, 결과는 감정 기록과 함께 저장되어 홈과 캘린더 화면에서 다시 확인할 수 있도록 구현했습니다.\n\n구독 기능은 무료 사용량 확인, PayApp 정기결제, Apple/Google 인앱결제 검증과 연결해 기록 → 추천 → 조회 → 결제 흐름이 자연스럽게 이어지도록 설계했습니다.',
     reason:
@@ -263,6 +272,28 @@ const projects = [
       '- Kakao/Google/Apple 소셜 로그인\n- JWT 인증 및 refresh token 관리\n- Riverpod 기반 상태 관리\n- 감정 텍스트 기반 AI 분석/위로 응답/플레이리스트 추천\n- YouTube 플레이리스트 검증\n- 감정 기록 저장 및 캘린더 조회\n- 월간 감정 분석\n- 무료 추천권 및 일일 사용량 관리\n- PayApp 정기결제 등록/취소/웹훅 처리\n- Apple/Google 인앱결제 검증\n- Dio AuthInterceptor 기반 인증 처리\n- Firebase Analytics 이벤트 로깅',
     retrospect:
       '이 프로젝트를 통해 모바일 앱에서는 화면 구현보다 상태 흐름과 예외 처리가 중요하다는 것을 배웠습니다.\n또한 AI 기능은 모델 호출만으로 끝나는 것이 아니라 응답 형식 검증, 추천 품질 관리, 사용량 제한, 구독 상태 반영, 데이터 저장 구조까지 함께 설계해야 실제 서비스로 안정적으로 운영될 수 있다는 점을 체감했습니다.',
+  },
+  {
+    id: 'meeteem',
+    category: '대한안전보건교육원',
+    title: '밋팀',
+    image: '/img/meeteem/meeteem_main.png',
+    insightImage: '/img/meeteem/meeteem_insight.png',
+    iconImage: '/img/meeteem/meeteem_icon.png',
+    device: 'desktop',
+    summary: '화상회의 플랫폼',
+    role:
+      'Next.js 웹과 NestJS 백엔드, 그리고 배포 인프라 구조를 함께 파악하며 화상회의 플랫폼의 주요 흐름을 구현했습니다.\n\n웹에서는 회의 생성/목록/상세, 회의실 입장, 인증, 퀴즈, 출석 관리 화면을 중심으로 UI와 상태 흐름을 구성했습니다. Zustand 기반 상태관리로 회의실, 참가자, 권한, 출석/퀴즈 상태를 분리했고, LiveKit 기반 화상회의 화면에서는 카메라/마이크, 참가자 상태, 권한 이벤트, 채팅과 같은 실시간 요소가 화면에 안정적으로 반영되도록 구현했습니다.\n\n또한 livekit/track-processors를 활용해 카메라 트랙에 가상배경 처리를 적용하고, 회의 중에도 비디오 입력과 배경 효과가 자연스럽게 유지되도록 구현했습니다.\n\n백엔드에서는 NestJS 기반 API 구조, Prisma 데이터 모델, LiveKit 토큰 발급, Socket.IO 실시간 이벤트, 출석 캡처 큐, 퀴즈 세션, 파일 저장 연동을 중심으로 기능을 구성했습니다. 또한 Docker Compose와 Kubernetes 배포 구조를 함께 보며 개발 환경과 운영 환경이 이어질 수 있도록 정리했습니다.',
+    stack:
+      'Web\nNext.js 16, React 19, TypeScript, Tailwind CSS, Radix UI, Zustand, React Hook Form, Zod, TanStack Table, LiveKit Client, livekit/track-processors, Socket.IO Client, Better Auth\n\nBackend\nNestJS 11, TypeScript, Prisma, PostgreSQL, Redis, BullMQ, Socket.IO, LiveKit Server SDK, MinIO, Swagger, Winston\n\nInfra\nDocker, Nginx, LiveKit, LiveKit Egress, Terraform, Helm, Vultr Kubernetes Engine, Istio, cert-manager, external-dns',
+    flow:
+      '관리자가 회의를 생성하면 참가자는 웹에서 회의 링크로 입장하고, 인증 상태와 회의 설정에 따라 대기실, 입장 승인, 호스트/공동호스트/발표자 권한을 부여받도록 구성했습니다. 실제 화상회의는 LiveKit을 통해 처리하고, 회의 상태 변경이나 권한 제어 같은 서비스 이벤트는 Socket.IO로 동기화되도록 설계했습니다.\n\n회의 중에는 참가자의 카메라/마이크 상태, 채팅, 포커스 모드, 자리비움 알림 같은 실시간 흐름을 화면에서 확인할 수 있습니다. 출석 기능은 명단과 출석 기록을 관리하고, 캡처 이미지를 저장해 회의 이후에도 출석 상태와 증빙 자료를 다시 확인할 수 있도록 구성했습니다.\n\n퀴즈 기능은 관리자가 문제를 만들고 세션을 진행하면 참가자의 답변, 결과, 랭킹이 기록되는 흐름으로 구성했습니다. 녹화와 파일 저장은 LiveKit Egress와 MinIO를 연계해 회의 이후의 조회 흐름까지 이어지도록 설계했습니다.',
+    reason:
+      '이 서비스에서 중요한 부분은 화상회의 미디어 흐름, 실시간 제어 이벤트, 출석/퀴즈처럼 DB에 남아야 하는 업무 데이터가 서로 섞이지 않는 것이라고 판단했습니다.\n\n그래서 미디어 처리는 LiveKit에 맡기고, 입장 승인/권한 변경/상태 알림은 Socket.IO 이벤트로 분리했습니다. 프론트엔드에서는 Zustand 스토어를 기준으로 회의실 상태, 참가자 상태, 장치 상태, 출석/퀴즈 상태를 나누어 실시간 이벤트가 들어와도 화면 갱신 범위가 과하게 커지지 않도록 구성했습니다.\n\n가상배경은 브라우저에서 직접 처리해야 하는 사용자 경험 요소라고 보고 livekit/track-processors로 비디오 트랙 처리 계층을 분리했습니다. 회의 생성, 출석부, 퀴즈, 사용자 인증처럼 저장과 조회가 중요한 영역은 REST API와 Prisma 모델로 관리해 데이터 흐름을 명확하게 만들었습니다.\n\n또한 출석 캡처처럼 시간이 걸리거나 실패 재처리가 필요한 작업은 Redis와 BullMQ 기반 비동기 큐로 분리했습니다. 운영 환경은 Terraform, Helm, VKE, Istio, cert-manager를 사용해 웹, 백엔드, LiveKit, 도메인, 인증서 구성을 반복 배포 가능한 형태로 정리했습니다.',
+    features:
+      '- Better Auth 기반 로그인/회원/세션 관리\n- 회의 생성/수정/목록/상세 관리\n- Zustand 기반 회의실/참가자/장치/출석/퀴즈 상태관리\n- LiveKit 기반 화상회의 입장 및 토큰 발급\n- livekit/track-processors 기반 카메라 가상배경 구현\n- Socket.IO 기반 대기실/입장 승인/재연결/권한 이벤트 처리\n- 호스트/공동호스트/발표자 역할 관리\n- 카메라/마이크/채팅/포커스 모드 권한 제어\n- 출석부 명단 관리 및 실시간 출석 상태 기록\n- 화면 캡처 기반 출석 이미지 저장/조회\n- BullMQ/Redis 기반 출석 캡처 비동기 처리\n- 퀴즈 생성/수정/복사/삭제 및 세션 진행\n- 퀴즈 결과/랭킹/답변 집계\n- 녹화 상태 관리 및 LiveKit Egress/MinIO 저장 연계\n- Terraform/Helm 기반 VKE 프로덕션 배포',
+    retrospect:
+      '이 프로젝트를 통해 화상회의 서비스는 단순히 영상 통화 화면을 붙이는 것보다 실시간 이벤트와 업무 데이터의 경계를 잘 나누는 일이 중요하다는 것을 배웠습니다. LiveKit이 담당하는 미디어 흐름과 서비스가 직접 관리해야 하는 출석, 퀴즈, 권한, 인증 흐름을 분리해야 장애 상황에서도 원인을 추적하기 쉬웠습니다.\n\n또한 출석 캡처나 녹화처럼 시간이 걸리는 작업은 요청-응답 흐름 안에 묶기보다 큐와 저장소를 이용해 비동기적으로 처리하는 편이 안정적이라는 점을 체감했습니다. 프론트엔드, 백엔드, 인프라가 함께 맞물리는 서비스에서는 기능 구현만큼 배포 구조와 운영 흐름을 함께 보는 시야가 중요하다는 경험을 얻었습니다.',
   },
   {
     id: 'aicoon',
@@ -391,6 +422,7 @@ function ProjectCard({ project, onOpen }) {
     nuguljaepan: { top: '#2f8f68', bar: '#177653', frame: '#dff8ec' },
     wecal: { top: '#f477ad', bar: '#e75b9b', frame: '#ffe3f0' },
     mood: { top: '#8f68df', bar: '#7a4fd1', frame: '#eee6ff' },
+    meeteem: { top: '#83c8eb', bar: '#2f93c8', frame: '#e3f6ff' },
     aicoon: { top: '#4f79ea', bar: '#5f87ee', frame: '#dce6ff' },
     ildoc: { top: '#8a8a8a', bar: '#555555', frame: '#f0f0f0' },
     hanjogak: { top: '#72bdff', bar: '#1a90ff', frame: '#dff0ff' },

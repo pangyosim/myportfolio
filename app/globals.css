@@ -286,7 +286,7 @@ h1 {
 .hero-down--bottom {
   position: absolute;
   left: 50%;
-  bottom: -86px;
+  bottom: calc(28px + env(safe-area-inset-bottom));
   transform: translateX(-50%);
   margin-top: 0;
 }
@@ -683,6 +683,7 @@ h2 {
   font-weight: 900;
   letter-spacing: -0.5px;
   align-self: center;
+  min-height: 48px;
 }
 
 .year-badge {
@@ -696,9 +697,10 @@ h2 {
 
 .year-plain {
   color: #355db8;
-  padding: 0;
+  padding: 5px 0 6px;
   min-width: 0;
   font-size: clamp(28px, 2.35vw, 42px);
+  transform: translateY(-3px);
 }
 
 .journey-item h3 {
@@ -1096,7 +1098,8 @@ h2 {
 
 .project-card--nuguljaepan .project-visual--desktop .project-image,
 .project-card--wecal .project-visual--desktop .project-image,
-.project-card--mood .project-visual--desktop .project-image {
+.project-card--mood .project-visual--desktop .project-image,
+.project-card--meeteem .project-visual--desktop .project-image {
   aspect-ratio: 686 / 499;
 }
 
