@@ -7,9 +7,9 @@ const storyMilestones = [
   {
     year: '2021.11',
     title: '멀티캠퍼스',
-    desc: '인공지능 \n자연어처리(NLP기반) \n기업데이터분석 과정 수료',
+    desc: '인공지능\n NLP 자연어처리\n기업데이터분석 과정 수료',
     lane: 'top',
-    left: '21.7%',
+    left: '20%',
     badge: false,
   },
   {
@@ -17,7 +17,7 @@ const storyMilestones = [
     title: '한국폴리텍대학교',
     desc: 'Azure cloud \n전문가 양성 과정 수료',
     lane: 'top',
-    left: '43.3%',
+    left: '45%',
     badge: false,
   },
   {
@@ -25,7 +25,7 @@ const storyMilestones = [
     title: '메타넷디지털',
     desc: '클라우드 SA 엔지니어 \n퇴직(업직종전환)',
     lane: 'top',
-    left: '65%',
+    left: '70%',
     badge: true,
   },
   {
@@ -33,7 +33,7 @@ const storyMilestones = [
     title: '한국취업센터',
     desc: '미래내일 일경험 \n프로젝트 과정 수료',
     lane: 'middle',
-    left: '26.7%',
+    left: '32.5%',
     badge: false,
   },
   {
@@ -41,32 +41,56 @@ const storyMilestones = [
     title: 'KIT코리아아카데미',
     desc: 'Spring기반 개발자 \n교육 과정 수료',
     lane: 'middle',
-    left: '56.7%',
+    left: '57.5%',
     badge: false,
   },
   {
     year: '2026.01',
     title: '리턴플러스',
-    desc: '기업부설연구소 백엔드 개발자 \n퇴직(회사 경영 악화)',
-    lane: 'bottom',
-    left: '27.5%',
+    desc: '백엔드 개발자 \n퇴직(회사 경영 악화)',
+    lane: 'third',
+    left: '25%',
     badge: true,
   },
   {
     year: '2026.02',
     title: 'GYOU',
     desc: '구독관리서비스 \n일독(ILDOK) 외주 개발',
-    lane: 'bottom',
-    left: '50.8%',
+    lane: 'third',
+    left: '47.5%',
     badge: true,
   },
   {
     year: '2026.03',
     title: '개인 프로젝트',
     desc: 'AI Agent기반 \n아이쿤 서비스 개발',
+    lane: 'third',
+    left: '70%',
+    badge: false,
+  },
+  {
+    year: '2026.04',
+    title: '개인 프로젝트',
+    desc: '감정 기록기반\n유튜브 플레이리스트 추천\n무드 어플 개발',
     lane: 'bottom',
     left: '74.1%',
     badge: false,
+  },
+  {
+    year: '2026.05',
+    title: '개인 프로젝트',
+    desc: 'IOS 잠금화면 캘린더\n위캘 어플 개발',
+    lane: 'bottom',
+    left: '50.8%',
+    badge: false,
+  },
+  {
+    year: '2026.06',
+    title: '개인 프로젝트',
+    desc: 'AI기반 갈등 해결\n너굴재판 어플 개발',
+    lane: 'bottom',
+    left: '27.5%',
+    badge: true,
   },
 ];
 
@@ -114,14 +138,17 @@ const recordCards = [
 ];
 
 const timelinePoints = [
-  { x: 260, y: 130, icon: '/icons/story/start.png' },
-  { x: 520, y: 130, icon: '/icons/story/school.png' },
-  { x: 780, y: 130, icon: '/icons/story/company.png' },
-  { x: 320, y: 470, icon: '/icons/story/project.png' },
-  { x: 680, y: 470, icon: '/icons/story/school.png' },
-  { x: 330, y: 860, icon: '/icons/story/company.png' },
-  { x: 610, y: 860, icon: '/icons/story/handshake.png' },
-  { x: 890, y: 860, icon: '/icons/story/personal_project.png' },
+  { x: 240, y: 130, icon: '/icons/story/start.png' },
+  { x: 540, y: 130, icon: '/icons/story/school.png' },
+  { x: 840, y: 130, icon: '/icons/story/company.png' },
+  { x: 390, y: 430, icon: '/icons/story/project.png' },
+  { x: 690, y: 430, icon: '/icons/story/school.png' },
+  { x: 300, y: 730, icon: '/icons/story/company.png' },
+  { x: 570, y: 730, icon: '/icons/story/ildok_icon.png' },
+  { x: 840, y: 730, icon: '/icons/story/personal_project.png' },
+  { x: 330, y: 1030, icon: '/icons/story/nuguljaepan_icon.png' },
+  { x: 610, y: 1030, icon: '/icons/story/wecal_icon.png' },
+  { x: 890, y: 1030, icon: '/icons/story/mood_icon.png' },
 ];
 
 const landingIcons = [
@@ -133,6 +160,7 @@ const landingIcons = [
   '/icons/landing/docker.png',
   '/icons/landing/drizzle.png',
   '/icons/landing/fastapi.png',
+  '/icons/landing/flutter.png',
   '/icons/landing/gemini.png',
   '/icons/landing/github.png',
   '/icons/landing/github_actions.png',
@@ -164,12 +192,78 @@ const landingIcons = [
 function getLandingIconIndex(col, row, total) {
   // 열별 고정 순열을 사용하고, 동일 순서를 반복해 루프 경계에서도 이미지가 바뀌지 않게 유지합니다.
   const posInSet = row % total;
-  const step = 5; // total(34)와 서로소라 한 사이클에서 중복 없이 순회
+  const step = 6; // total(35)와 서로소라 한 사이클에서 중복 없이 순회
   const colOffset = 7; // 열마다 시작 위상을 달리해 같은 행에서 중복을 줄임
   return (posInSet * step + col * colOffset) % total;
 }
 
 const projects = [
+  {
+    id: 'nuguljaepan',
+    category: '개인 프로젝트',
+    title: '너굴재판',
+    image: '/img/nuguljaepan/nuguljaepan_main.png',
+    insightImage: '/img/nuguljaepan/nuguljaepan_insight.png',
+    iconImage: '/img/nuguljaepan/nuguljaepan_icon.png',
+    device: 'desktop',
+    summary: 'AI 기반 재판 어플',
+    role:
+      'Flutter 앱과 Spring Boot 백엔드 전반을 직접 설계하고 개발했습니다.\n\nFlutter 앱에서는 전체 앱 구조 설계, 소셜 로그인, 토큰 저장 및 자동 갱신, 커플 연결, 사건 등록, 진술 작성, 투표, 댓글, 판결, 항소 화면과 기능을 구현했습니다. 또한 WebSocket 기반 실시간 사건 목록 동기화, Firebase 알림, 로컬 알림 처리, 공통 네트워크 계층과 환경 설정을 담당했습니다.\n\n백엔드에서는 Spring Boot 기반 서버 구조 설계, JWT 인증/인가, 소셜 로그인 연동, 커플 초대코드/매칭 플로우, 사건/입장/투표/판결/항소 API, WebSocket 실시간 이벤트, OpenAI 기반 판결 생성 로직, S3 이미지 업로드, FCM 알림 API, 약관/문의/신고 기능, PostgreSQL/Flyway 기반 DB 마이그레이션을 구현했습니다.\n\n프론트엔드와 백엔드를 함께 개발하면서 커플 연결 → 사건 생성 → 입장 제출 → 투표 → AI 판결 → 항소 → 최종 판결까지 이어지는 전체 재판 흐름을 하나의 서비스 구조로 설계했습니다.',
+    stack:
+      'Frontend\nFlutter, Dart, REST API, WebSocket, Firebase Cloud Messaging, flutter_local_notifications, flutter_secure_storage, shared_preferences, Kakao Login, Google Sign-In, Sign in with Apple, Lottie\n\nBackend\nJava, Spring Boot, Spring Security, JWT, JPA/Hibernate, PostgreSQL, Flyway, WebSocket/STOMP, AWS S3, Firebase FCM, OpenAI API, REST API',
+    flow:
+      '사용자는 Kakao, Google, Apple 소셜 로그인으로 가입하고, 닉네임/성별 등 기본 프로필을 설정한 뒤 커플 초대코드로 상대방과 연결됩니다. 이후 커플 중 한 명이 갈등 상황을 사건으로 등록하면 상대방이 진술을 추가하고, 사건을 공개해 다른 사용자들의 투표와 댓글을 받을 수 있도록 구성했습니다.\n\n재판이 시작되면 설정된 투표 시간 동안 배심원 투표가 진행되고, 투표 종료 후 AI가 양측 입장과 투표 결과를 바탕으로 판결, 책임 비율, 배상 제안, 조언, 약속, 추천 선물을 생성합니다. 사건 상태 변화는 REST API와 WebSocket을 함께 사용해 홈 화면과 사건 상세 화면에 실시간으로 반영되도록 구현했습니다.\n\n또한 Firebase Cloud Messaging과 로컬 알림을 적용해 사건 진행, 댓글, 판결 등 주요 알림을 앱 사용 중이거나 백그라운드 상태일 때도 확인할 수 있도록 구성했습니다.',
+    reason:
+      '이 서비스에서 가장 중요하게 본 부분은 커플 연결 상태, 사건 상태, 투표/판결 흐름이 꼬이지 않는 것이었습니다.\n\n백엔드에서는 커플, 사건, 입장, 투표, 판결, 댓글, 알림 기능을 도메인별로 분리했습니다. 사건 상태는 WAITING_STATEMENTS, READY_FOR_VOTE, VOTING, JUDGED, APPEALED, FINAL_JUDGED처럼 명확하게 관리해 각 단계별 전환 조건과 예외 처리를 분리했습니다.\n\nFlutter 앱에서는 인증, 커플, 사건, 판결, 항소, 알림 기능을 도메인 단위로 나누고, 공통 네트워크 계층에서 토큰 첨부와 만료 토큰 갱신을 처리했습니다. 사건 목록과 상세 정보는 REST API로 기본 데이터를 조회하고, 이후 변경 사항은 WebSocket 이벤트로 반영해 불필요한 전체 새로고침을 줄였습니다.\n\nAI 판결은 모델 응답을 그대로 사용하지 않고, 서버에서 책임 비율, 추천 선물, 응답 포맷을 보정해 프론트엔드가 안정적으로 사용할 수 있도록 설계했습니다.',
+    features:
+      '- Kakao/Google/Apple 소셜 로그인\n- JWT 기반 인증/인가 및 refresh token 처리\n- 사용자별 초대코드 자동 생성\n- 커플 초대코드 생성/참여/연결 해제\n- 커플 사건 생성/수정/삭제\n- A/B 입장 제출/수정/삭제\n- 재판 시작 및 투표 시간 설정\n- 배심원 투표 및 투표 요약 조회\n- AI 판결 생성 및 조회\n- 책임 비율, 배상 제안, 조언, 약속, 추천 선물 생성\n- 항소 등록 및 항소 목록 조회\n- 사건별 댓글 작성/삭제\n- 신고, 1:1 문의, 약관 조회/동의내역 조회\n- 프로필 이미지 S3 업로드\n- Firebase FCM 알림 처리\n- flutter_local_notifications 기반 포그라운드 알림 처리\n- WebSocket/STOMP 기반 사건 목록/상세/커플 상태 실시간 갱신\n- /cases/my, /cases/hot, /cases/{caseId} 응답에 상태값, 투표 수, 판결, 추천 선물, 심급별 입장 정보 포함',
+    retrospect:
+      '이 프로젝트를 통해 단순 CRUD보다 상태 흐름 설계가 훨씬 중요하다는 것을 배웠습니다. 커플 연결, 입장 제출, 투표 시작, 판결 생성, 항소, 최종 판결처럼 여러 단계가 이어지는 서비스에서는 API 하나하나보다 상태 전환 조건과 예외 처리가 사용자 경험을 크게 좌우했습니다.\n\n또한 여러 사용자의 행동이 동시에 반영되는 사건 목록에서는 REST API만으로는 부족했고, WebSocket 기반 실시간 이벤트와 재연결 로직이 필요하다는 점을 체감했습니다. AI 판결 기능을 구현하면서도 모델 응답을 그대로 사용하는 것이 아니라, 서버에서 구조화하고 보정하는 과정이 실제 서비스 품질에 중요하다는 것을 배웠습니다.\n\n결과적으로 Flutter 앱, Spring Boot 백엔드, 실시간 통신, AI 판결, 알림, 이미지 업로드, 인증/인가까지 서비스 전반을 직접 설계하고 구현하는 경험을 쌓을 수 있었습니다.',
+  },
+  {
+    id: 'wecal',
+    category: '개인 프로젝트',
+    title: '위캘',
+    image: '/img/wecal/wecal_main.png',
+    insightImage: '/img/wecal/wecal_insight.png',
+    iconImage: '/img/wecal/wecal_icon.png',
+    device: 'desktop',
+    summary: 'IOS 잠금화면 캘린더 위젯 어플',
+    role:
+      'Flutter 앱 구조 설계 및 개발, 캘린더 화면 UI 구현, 일정 조회/추가/수정/삭제 기능 구현, MethodChannel 기반 IOS 네이티브 연동, Swift EventKit 캘린더 연동, 로컬 설정 저장, 이미지 생성 및 저장 흐름 구현, IOS 단축어 설치/실행 연동을 담당했습니다.',
+    stack:
+      'Flutter, Dart, Swift, IOS EventKit, MethodChannel, SharedPreferences, path_provider, url_launcher, Lottie, IOS 단축어, Firebase Analytics',
+    flow:
+      '사용자가 앱에서 캘린더 권한을 허용하면 IOS 캘린더 데이터를 불러와 Flutter 화면에서 월별 일정과 상세 일정을 확인할 수 있도록 구성했습니다. 일정 추가, 수정, 삭제는 Flutter 앱에서 입력한 값을 IOS 네이티브 캘린더와 연동해 처리되며, 변경된 일정은 앱 화면에 다시 반영되도록 만들었습니다.\n\n또한 사용자가 원하는 배경과 캘린더 화면을 바탕화면 이미지로 생성하고, IOS 단축어를 실행해 잠금화면에 적용할 수 있는 흐름으로 설계했습니다. 앱 내부에서는 설정값과 생성된 이미지 경로를 로컬에 저장해 다음 실행 시에도 이전 상태가 유지되도록 구성했습니다.',
+    reason:
+      '이 프로젝트는 별도 백엔드 없이 IOS 기기 안에서 완결되는 앱이기 때문에, Flutter 화면과 IOS 네이티브 기능을 안정적으로 연결하는 것이 중요하다고 생각했습니다. 그래서 Flutter에서는 화면과 상태 흐름을 관리하고, 캘린더 접근, 사진 저장, 단축어 실행 같은 플랫폼 기능은 Swift와 MethodChannel을 통해 처리하도록 분리했습니다.\n\n특히 잠금화면 적용은 Flutter만으로 직접 처리하기 어렵기 때문에 IOS 단축어와 연동하는 방식으로 해결했습니다. 사용자는 앱에서 이미지를 생성한 뒤 단축어를 실행해 자연스럽게 잠금화면을 적용할 수 있도록 했습니다.',
+    features:
+      '핵심 기능은 Flutter 기반 캘린더 UI, Dart 기반 화면 상태 관리, IOS EventKit 캘린더 연동, MethodChannel 기반 네이티브 기능 호출, SharedPreferences를 활용한 로컬 설정 저장, path_provider를 활용한 이미지 파일 저장, url_launcher를 활용한 단축어 설치 및 실행 연결입니다.\n\n또한 Lottie 애니메이션을 활용해 권한 요청, 단축어 안내, 완료 상태 같은 주요 흐름을 시각적으로 표현했고, Swift 네이티브 코드에서는 캘린더 권한 확인, 일정 조회/생성/수정/삭제, 사진 저장, 단축어 실행, Firebase Analytics 이벤트 기록을 처리했습니다.',
+    retrospect:
+      '이 프로젝트를 진행하면서 Flutter 앱에서도 플랫폼 특화 기능을 잘 연결하면 백엔드 없이도 완성도 있는 사용자 경험을 만들 수 있다는 점을 배웠습니다. 특히 캘린더, 사진, 단축어처럼 IOS 네이티브 기능이 필요한 부분은 MethodChannel로 분리하면서 Flutter와 Swift의 역할을 명확히 나누는 경험을 할 수 있었습니다.\n\n또한 단순히 캘린더를 보여주는 것에서 끝나는 것이 아니라, 사용자가 직접 만든 캘린더 이미지를 잠금화면에 적용하는 흐름까지 연결하면서 앱 기능과 IOS 자동화 기능을 함께 설계하는 방법을 익혔습니다.',
+  },
+  {
+    id: 'mood',
+    category: '개인 프로젝트',
+    title: '무드',
+    image: '/img/mood/mood_main.png',
+    insightImage: '/img/mood/mood_insight.png',
+    iconImage: '/img/mood/mood_icon.png',
+    device: 'desktop',
+    summary: '감정 기록 기반 플레이리스트 추천 어플',
+    role:
+      'Flutter 앱과 Spring Boot 백엔드 전반을 직접 설계하고 개발했습니다.\n앱에서는 화면 구조, Riverpod 상태 관리, 감정 기록/추천/캘린더/구독 화면, 소셜 로그인, API 통신, 인증 인터셉터, Analytics 로깅을 구현했습니다.\n\n백엔드에서는 JWT 인증, 감정 분석 및 플레이리스트 추천 파이프라인, YouTube 검증 로직, PayApp 및 인앱결제 검증, 무료 이용권 관리, 스케줄러, PostgreSQL/Flyway 기반 데이터 모델링을 담당했습니다.',
+    stack:
+      'Frontend\nFlutter, Dart, Riverpod, Dio, GoRouter, Flutter Secure Storage, Firebase Analytics, Kakao Login, Google Sign-In, Apple Sign-In, In-App Purchase, TableCalendar, Lottie\n\nBackend\nJava 17, Spring Boot, Spring Security, Spring Data JPA, PostgreSQL, Flyway, JWT, OpenAI Responses API, YouTube Data API, PayApp, Apple StoreKit API, Google Android Publisher API, Docker',
+    flow:
+      '사용자가 Kakao, Google, Apple 소셜 로그인으로 앱에 진입하면 Flutter 앱에서 Riverpod 상태를 기준으로 홈, 감정 기록, 캘린더, 구독 화면이 동기화되도록 구성했습니다.\n사용자가 감정을 입력하면 Spring Boot API에서 감정 분석, 위로 응답, YouTube 플레이리스트 추천을 처리하고, 결과는 감정 기록과 함께 저장되어 홈과 캘린더 화면에서 다시 확인할 수 있도록 구현했습니다.\n\n구독 기능은 무료 사용량 확인, PayApp 정기결제, Apple/Google 인앱결제 검증과 연결해 기록 → 추천 → 조회 → 결제 흐름이 자연스럽게 이어지도록 설계했습니다.',
+    reason:
+      '이 서비스에서 중요한 부분은 감정 기록과 추천 결과가 화면마다 일관되게 보이는 것과 로그인/구독 상태에 따라 사용 흐름이 끊기지 않는 것이라고 판단했습니다.\n\n프론트엔드는 auth, home, calendar, subscription 단위로 기능을 분리하고 Riverpod ViewModel로 추천 결과, 무료 잔여 횟수, 구독 상태를 관리했습니다.\n백엔드는 인증, 추천, 구독, 이용권 영역을 분리하고, AI 추천 결과를 DB에 저장해 캘린더와 분석 화면에서 재사용할 수 있도록 구성했습니다.\n\n또한 Dio 인터셉터로 토큰 자동 첨부와 refresh 재요청을 처리하고, AI 응답은 JSON Schema 기반으로 형식을 강제했으며 YouTube API로 실제 플레이리스트를 검증했습니다.',
+    features:
+      '- Kakao/Google/Apple 소셜 로그인\n- JWT 인증 및 refresh token 관리\n- Riverpod 기반 상태 관리\n- 감정 텍스트 기반 AI 분석/위로 응답/플레이리스트 추천\n- YouTube 플레이리스트 검증\n- 감정 기록 저장 및 캘린더 조회\n- 월간 감정 분석\n- 무료 추천권 및 일일 사용량 관리\n- PayApp 정기결제 등록/취소/웹훅 처리\n- Apple/Google 인앱결제 검증\n- Dio AuthInterceptor 기반 인증 처리\n- Firebase Analytics 이벤트 로깅',
+    retrospect:
+      '이 프로젝트를 통해 모바일 앱에서는 화면 구현보다 상태 흐름과 예외 처리가 중요하다는 것을 배웠습니다.\n또한 AI 기능은 모델 호출만으로 끝나는 것이 아니라 응답 형식 검증, 추천 품질 관리, 사용량 제한, 구독 상태 반영, 데이터 저장 구조까지 함께 설계해야 실제 서비스로 안정적으로 운영될 수 있다는 점을 체감했습니다.',
+  },
   {
     id: 'aicoon',
     category: '개인 프로젝트',
@@ -294,11 +388,14 @@ const projects = [
 
 function ProjectCard({ project, onOpen }) {
   const palettes = {
+    nuguljaepan: { top: '#2f8f68', bar: '#177653', frame: '#dff8ec' },
+    wecal: { top: '#f477ad', bar: '#e75b9b', frame: '#ffe3f0' },
+    mood: { top: '#8f68df', bar: '#7a4fd1', frame: '#eee6ff' },
     aicoon: { top: '#4f79ea', bar: '#5f87ee', frame: '#dce6ff' },
-    ildoc: { top: '#ed78be', bar: '#dc55a9', frame: '#ffe1f4' },
-    hanjogak: { top: '#f2cb6d', bar: '#f0b22d', frame: '#fff1cc' },
-    prime: { top: '#22b86f', bar: '#08a75f', frame: '#d4ffe8' },
-    semsem: { top: '#6a66ef', bar: '#5f5ce0', frame: '#e3e4ff' },
+    ildoc: { top: '#8a8a8a', bar: '#555555', frame: '#f0f0f0' },
+    hanjogak: { top: '#72bdff', bar: '#1a90ff', frame: '#dff0ff' },
+    prime: { top: '#ffa66e', bar: '#fd6c11', frame: '#ffe7d8' },
+    semsem: { top: '#9dc0df', bar: '#538ec0', frame: '#e2f0fb' },
     kubernetes: { top: '#47a6db', bar: '#2f88c7', frame: '#dff3ff' },
   };
   const tone = palettes[project.id] ?? palettes.aicoon;
@@ -648,6 +745,17 @@ export default function Page() {
         </div>
       </section>
 
+      <div className={`mobile-floating-brand ${tabPinned ? 'is-visible' : ''}`} aria-hidden={!tabPinned}>
+        <Image
+          src="/img/employ/profile.jpg"
+          alt="심판교 프로필"
+          width={30}
+          height={30}
+          className="tab-strip-brand-avatar"
+        />
+        <span>심판교 포트폴리오</span>
+      </div>
+
       <section className="message-block" id="story-intro">
         <p>AI 트렌드를 리서치하며,</p>
         <p>튜닝하여 업무에 적용해보고</p>
@@ -665,20 +773,20 @@ export default function Page() {
           <h2 className="story-title">심판교의 발걸음</h2>
           <div className="journey-map-stage">
             <div className="journey-map">
-              <svg viewBox="0 0 1200 760" className="journey-track-line" aria-hidden="true">
+              <svg viewBox="0 0 1200 1120" className="journey-track-line" aria-hidden="true">
                 <path
                   className="timeline-main-path"
-                  d="M80 130 H920 C1010 130 1060 210 1060 300 C1060 390 1010 470 920 470 H280 C190 470 140 560 140 665 C140 770 190 860 280 860 H1106"
+                  d="M80 130 H920 C1010 130 1060 195 1060 280 C1060 365 1010 430 920 430 H280 C190 430 140 495 140 580 C140 665 190 730 280 730 H920 C1010 730 1060 795 1060 880 C1060 965 1010 1030 920 1030 H94"
                   fill="none"
                   stroke="#3d63b8"
                   strokeLinecap="round"
                 />
               </svg>
 
-              <svg viewBox="0 0 1200 760" className="journey-track-points" aria-hidden="true">
+              <svg viewBox="0 0 1200 1120" className="journey-track-points" aria-hidden="true">
                 <path
                   className="timeline-arrow-path"
-                  d="M1094 850 L1118 860 L1094 870 Z"
+                  d="M106 1020 L82 1030 L106 1040 Z"
                   fill="#3d63b8"
                   stroke="#3d63b8"
                   strokeLinejoin="round"
@@ -709,9 +817,9 @@ export default function Page() {
                 />
               ))}
 
-              {storyMilestones.map((m) => (
+              {storyMilestones.map((m, milestoneIdx) => (
                 <article
-                  key={m.year + m.title}
+                  key={`${m.year}-${m.title}-${milestoneIdx}`}
                   className={`journey-item lane-${m.lane}`}
                   style={{ left: m.left }}
                 >
